@@ -1,0 +1,108 @@
+user: Daftar User
+
+show_user_col_1: "No"
+show_user_col_2: Nama
+show_user_col_3: Username
+show_user_col_4: Email
+show_user_col_5: No. Handphone
+show_user_col_6: Role
+show_user_col_7: Status
+show_user_col_8: Aksi
+
+hide_user_col_1: UID User
+hide_user_col_2: Username
+hide_user_col_3: Role
+hide_user_col_4: Status
+hide_user_col_5: Seksi
+hide_user_col_6: Email
+
+user_btn_add: Tambah User
+user_add_modal_title: Tambah User
+user_add_modal_label_nama: Nama
+user_add_modal_label_nama_plc: Masukkan Nama
+user_add_modal_label_nama_error: Nama Wajib Diisi!
+user_add_modal_label_username: Username / Namecode
+user_add_modal_label_username_plc: Masukkan Username / Namecode
+user_add_modal_label_username_error: Username / Namecode Wajib Diisi!
+user_add_modal_label_namecode: Namecode
+user_add_modal_label_namecode_plc: Masukkan Namecode
+user_add_modal_label_namecode_error: Namecode Wajib Diisi!
+user_add_modal_label_inisial: Inisial
+user_add_modal_label_inisial_plc: Masukkan Inisial
+user_add_modal_label_inisial_error: Inisial Wajib Diisi!
+user_add_modal_label_password: Password
+user_add_modal_label_password_plc: Masukkan Password
+user_add_modal_label_password_error: Password Wajib Diisi!
+user_add_modal_label_no_hp: 'No. Handphone' 
+user_add_modal_label_no_hp_plc: Masukkan No. Handphone
+user_add_modal_label_no_hp_error: No. Handphone Wajib Diisi!
+user_add_modal_label_role: Role
+user_add_modal_label_role_plc: Masukkan Role
+user_add_modal_label_role_error: Role Wajib Diisi!
+user_add_modal_label_seksi: Seksi
+user_add_modal_label_seksi_plc: Masukkan Seksi
+user_add_modal_label_seksi_error: Seksi Wajib Diisi!
+user_add_modal_label_perusahaan: Perusahaan
+user_add_modal_label_perusahaan_plc: Masukkan Perusahaan
+user_add_modal_label_perusahaan_error: Perusahaan Wajib Diisi!
+user_add_modal_label_nm_perusahaan: Nama Perusahaan
+user_add_modal_label_nm_perusahaan_plc: Masukkan Nama Perusahaan
+user_add_modal_label_nm_perusahaan_error: Nama Perusahaan Wajib Diisi!
+user_add_modal_label_email: Email
+user_add_modal_label_email_plc: Masukkan Email
+user_add_modal_label_email_error: Email Wajib Diisi!
+
+user_edit_modal_title: Edit User
+user_edit_modal_label_nama: Nama
+user_edit_modal_label_nama_plc: Masukkan Nama
+user_edit_modal_label_nama_error: Nama Wajib Diisi!
+user_edit_modal_label_username: Username / Namecode
+user_edit_modal_label_username_plc: Masukkan Username / Namecode
+user_edit_modal_label_username_error: Username / Namecode Wajib Diisi!
+user_edit_modal_label_namecode: Namecode
+user_edit_modal_label_namecode_plc: Masukkan Namecode
+user_edit_modal_label_namecode_error: Namecode Wajib Diisi!
+user_edit_modal_label_inisial: Inisial
+user_edit_modal_label_inisial_plc: Masukkan Inisial
+user_edit_modal_label_inisial_error: Inisial Wajib Diisi!
+user_edit_modal_label_password: Password
+user_edit_modal_label_password_plc: Kosongkan jika tidak ingin mengganti password
+user_edit_modal_label_password_error: Password Wajib Diisi!
+user_edit_modal_label_no_hp: 'No. Handphone' 
+user_edit_modal_label_no_hp_plc: Masukkan No. Handphone
+user_edit_modal_label_no_hp_error: No. Handphone Wajib Diisi!
+user_edit_modal_label_role: Role
+user_edit_modal_label_role_plc: Masukkan Role
+user_edit_modal_label_role_error: Role Wajib Diisi!
+user_edit_modal_label_seksi: Seksi
+user_edit_modal_label_seksi_plc: Masukkan Seksi
+user_edit_modal_label_seksi_error: Seksi Wajib Diisi!
+user_edit_modal_label_nm_perusahaan: Nama Perusahaan
+user_edit_modal_label_nm_perusahaan_plc: Masukkan Nama Perusahaan
+user_edit_modal_label_nm_perusahaan_error: Nama Perusahaan Wajib Diisi!
+user_edit_modal_label_perusahaan: Perusahaan
+user_edit_modal_label_perusahaan_plc: Masukkan Perusahaan
+user_edit_modal_label_perusahaan_error: Perusahaan Wajib Diisi!
+user_edit_modal_label_email: Email
+user_edit_modal_label_email_plc: Masukkan Email
+user_edit_modal_label_email_error: Email Wajib Diisi!
+
+user_add_success_header: Berhasil
+user_add_success_message: Berhasil Menambahkan User
+user_add_failed_header: Gagal Menambahkan User
+user_add_failed_message: Data User Gagal Ditambahkan.
+
+user_edit_success_header: Berhasil
+user_edit_success_message: Berhasil Mengupdate User
+user_edit_failed_header: Gagal Mengupdate User
+user_edit_failed_message: Data User Gagal Diupdate.
+
+user_delete_success_header: Berhasil
+user_delete_success_message: Berhasil Menghapus User
+user_delete_failed_header: Gagal Menghapus User
+user_delete_failed_message: User Gagal Dihapus, Dengan Kemungkinan Bahwa User Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.
+
+user_status_success_header: Berhasil
+user_status_success_message: Berhasil Mengupdate Status User
+user_status_failed_header: Gagal Mengupdate Status User
+user_status_failed_message: Status User Gagal Diupdate, Dengan Kemungkinan Bahwa User Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.

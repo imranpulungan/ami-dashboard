@@ -1,0 +1,16 @@
+title: AMI - Login
+welcome: Selamat Datang Kembali
+enter: Masuk untuk melanjutkan ke Sistem AMI Online.
+username: Username / Namecode
+username_placeholder: Masukkan Username / Namecode
+password: Password
+password_placeholder: Masukkan Password
+forget: Lupa Password?
+remember: Ingat Saya
+login_button: Masuk
+sosmed: Media Sosial Kami
+login_success: Login Berhasil
+login_success_message: Kami Akan Mengarahkan Anda Ke Halaman Dashboard
+login_failed: Login Gagal
+login_failed_message: Username & Password Salah
+login_empty_message: Username & Password Tidak Boleh Kosong

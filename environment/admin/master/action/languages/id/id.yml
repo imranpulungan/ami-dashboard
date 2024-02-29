@@ -1,0 +1,41 @@
+action: Menu Action
+
+show_action_col_1: "No"
+show_action_col_2: Code
+show_action_col_3: Nama
+show_action_col_4: Deskripsi
+show_action_col_5: Action
+hide_action_col_1: ID Action
+
+action_btn_add: Tambah Action
+action_add_modal_title: Tambah Action
+action_add_modal_label_code: Code
+action_add_modal_label_code_plc: Masukkan Code
+action_add_modal_label_code_error: Code Wajib Diisi!
+action_add_modal_label_nama: Nama
+action_add_modal_label_nama_plc: Masukkan Nama
+action_add_modal_label_nama_error: Nama Wajib Diisi!
+action_add_modal_label_deskripsi: Deskripsi
+action_add_modal_label_deskripsi_plc: Masukkan Deskripsi
+action_add_modal_label_deskripsi_error: Deskripsi Wajib Diisi!
+
+action_edit_modal_title: Edit Action
+action_edit_modal_label_code: Code
+action_edit_modal_label_code_plc: Masukkan Code
+action_edit_modal_label_code_error: Code Wajib Diisi!
+action_edit_modal_label_nama: Nama
+action_edit_modal_label_nama_plc: Masukkan Nama
+action_edit_modal_label_nama_error: Nama Wajib Diisi!
+action_edit_modal_label_deskripsi: Deskripsi
+action_edit_modal_label_deskripsi_plc: Masukkan Deskripsi
+action_edit_modal_label_deskripsi_error: Deskripsi Wajib Diisi!
+
+action_edit_success_header: Berhasil
+action_edit_success_message: Berhasil Mengupdate Action
+action_edit_failed_header: Gagal Mengupdate Action
+action_edit_failed_message: Data Action Gagal Diupdate.
+
+action_delete_success_header: Berhasil
+action_delete_success_message: Berhasil Menghapus Action
+action_delete_failed_header: Gagal Menghapus Action
+action_delete_failed_message: Action Gagal Dihapus, Dengan Kemungkinan Bahwa Action Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.

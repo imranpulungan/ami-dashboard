@@ -1,0 +1,41 @@
+jenis: Jenis
+
+show_jenis_col_1: "No"
+show_jenis_col_2: Nomor Dokumen
+show_jenis_col_3: Nama
+show_jenis_col_4: Judul Dokumen
+show_jenis_col_5: Action
+hide_jenis_col_1: ID Jenis
+
+jenis_btn_add: Tambah Jenis
+jenis_add_modal_title: Tambah Jenis
+jenis_add_modal_label_no_dokumen: Nomor Dokumen
+jenis_add_modal_label_no_dokumen_plc: Masukkan Nomor Dokumen
+jenis_add_modal_label_no_dokumen_error: Nomor Dokumen Wajib Diisi!
+jenis_add_modal_label_nm_jenis: Nama
+jenis_add_modal_label_nm_jenis_plc: Masukkan Nama
+jenis_add_modal_label_nm_jenis_error: Nama Wajib Diisi!
+jenis_add_modal_label_judul: Judul Dokumen
+jenis_add_modal_label_judul_plc: Masukkan Judul Dokumen
+jenis_add_modal_label_judul_error: Judul Dokumen Wajib Diisi!
+
+jenis_edit_modal_title: Edit Jenis
+jenis_edit_modal_label_no_dokumen: Nomor Dokumen
+jenis_edit_modal_label_no_dokumen_plc: Masukkan Nomor Dokumen
+jenis_edit_modal_label_no_dokumen_error: Nomor Dokumen Wajib Diisi!
+jenis_edit_modal_label_nm_jenis: Nama
+jenis_edit_modal_label_nm_jenis_plc: Masukkan Nama
+jenis_edit_modal_label_nm_jenis_error: Nama Wajib Diisi!
+jenis_edit_modal_label_judul: Judul Dokumen
+jenis_edit_modal_label_judul_plc: Masukkan Judul Dokumen
+jenis_edit_modal_label_judul_error: Judul Dokumen Wajib Diisi!
+
+jenis_edit_success_header: Berhasil
+jenis_edit_success_message: Berhasil Mengupdate Jenis
+jenis_edit_failed_header: Gagal Mengupdate Jenis
+jenis_edit_failed_message: Data Jenis Gagal Diupdate.
+
+jenis_delete_success_header: Berhasil
+jenis_delete_success_message: Berhasil Menghapus Jenis
+jenis_delete_failed_header: Gagal Menghapus Jenis
+jenis_delete_failed_message: Jenis Gagal Dihapus, Dengan Kemungkinan Bahwa Jenis Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.

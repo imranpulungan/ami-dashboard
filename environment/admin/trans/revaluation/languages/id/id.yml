@@ -1,0 +1,70 @@
+revaluation: Revaluasi
+
+show_revaluation_col_1: "No"
+show_revaluation_col_2: Nomor Aset
+show_revaluation_col_3: Revaluasi IDR
+show_revaluation_col_4: Revaluasi USD
+show_revaluation_col_5: Tahun Revaluasi
+show_revaluation_col_6: Kategori
+show_revaluation_col_7: Plant
+
+revaluation_btn_add: Tambah Revaluasi
+revaluation_add_modal_title: Tambah Revaluasi
+revaluation_add_modal_label_nomor_asset: Nomor Asset
+revaluation_add_modal_label_nomor_asset_plc: Masukkan Nomor Asset
+revaluation_add_modal_label_nomor_asset_error: Nomor Asset Wajib Diisi!
+revaluation_add_modal_label_rupiah: Rupiah
+revaluation_add_modal_label_rupiah_plc: Masukkan Rupiah
+revaluation_add_modal_label_rupiah_error: Rupiah Wajib Diisi!
+revaluation_add_modal_label_dollar: Dollar
+revaluation_add_modal_label_dollar_plc: Masukkan Dollar
+revaluation_add_modal_label_dollar_error: Dollar Wajib Diisi!
+revaluation_add_modal_label_year: Tahun
+revaluation_add_modal_label_year_plc: Masukkan Tahun
+revaluation_add_modal_label_year_error: Bidang isian Tahun masih kosong atau tidak valid.
+
+revaluation_edit_modal_title: Edit Izin Kerja
+revaluation_edit_modal_label_nomor_izin: Nomor Izin (optional)
+revaluation_edit_modal_label_nomor_izin_plc: Masukkan Nomor Izin
+revaluation_edit_modal_label_nomor_izin_error: Nomor Izin Wajib Diisi!
+revaluation_edit_modal_label_masa_berlaku: Masa Berlaku Izin
+revaluation_edit_modal_label_tgl_berlaku: Tanggal
+revaluation_edit_modal_label_tgl_berlaku_plc: Masukkan Tanggal
+revaluation_edit_modal_label_tgl_berlaku_error: Tanggal Wajib Diisi!
+revaluation_edit_modal_label_jam_berlaku: Jam
+revaluation_edit_modal_label_jam_berlaku_plc: Masukkan Jam
+revaluation_edit_modal_label_jam_berlaku_error: Jam Wajib Diisi dengan Lengkap!
+
+revaluation_info_modal_title: Detail Izin Kerja
+revaluation_info_modal_label_nomor_izin: Nomor Izin (optional)
+revaluation_info_modal_label_nomor_izin_plc: Masukkan Nomor Izin
+revaluation_info_modal_label_nomor_izin_error: Nomor Izin Wajib Diisi!
+revaluation_info_modal_label_masa_berlaku: Masa Berlaku Izin
+revaluation_info_modal_label_tgl_berlaku: Tanggal
+revaluation_info_modal_label_tgl_berlaku_plc: Masukkan Tanggal
+revaluation_info_modal_label_tgl_berlaku_error: Tanggal Wajib Diisi!
+revaluation_info_modal_label_jam_berlaku: Jam
+revaluation_info_modal_label_jam_berlaku_plc: Masukkan Jam
+revaluation_info_modal_label_jam_berlaku_error: Jam Wajib Diisi dengan Lengkap!
+
+revaluation_verifikasi_error: Wajib Verifikasi!
+
+revaluation_add_success_header: Berhasil
+revaluation_add_success_message: Berhasil Menyimpan Revaluasi
+revaluation_add_failed_header: Gagal Menyimpan Revaluasi
+revaluation_add_failed_message: Data Revaluasi Gagal Disimpan.
+
+revaluation_edit_success_header: Berhasil
+revaluation_edit_success_message: Berhasil Mengupdate Revaluasi
+revaluation_edit_failed_header: Gagal Mengupdate Revaluasi
+revaluation_edit_failed_message: Data Revaluasi Gagal Diupdate.
+
+revaluation_verifikasi_success_header: Berhasil
+revaluation_verifikasi_success_message: Berhasil Verifikasi Revaluasi
+revaluation_verifikasi_failed_header: Gagal Verifikasi Revaluasi
+revaluation_verifikasi_failed_message: Data Revaluasi Gagal Diverifikasi.
+
+revaluation_delete_success_header: Berhasil
+revaluation_delete_success_message: Berhasil Menghapus Revaluasi
+revaluation_delete_failed_header: Gagal Menghapus Revaluasi
+revaluation_delete_failed_message: Revaluasi Gagal Dihapus, Dengan Kemungkinan Bahwa Revaluasi Sudah Terhapus, atau Ada Kendala Koneksi.

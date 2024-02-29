@@ -1,0 +1,34 @@
+seksi: Daftar Seksi
+
+show_seksi_col_1: "No"
+show_seksi_col_2: Nama
+show_seksi_col_3: Alias
+show_seksi_col_4: Action
+hide_seksi_col_1: ID Seksi
+
+seksi_btn_add: Tambah Seksi
+seksi_add_modal_title: Tambah Seksi
+seksi_add_modal_label_nama: Nama
+seksi_add_modal_label_nama_plc: Masukkan Nama
+seksi_add_modal_label_nama_error: Nama Wajib Diisi!
+seksi_add_modal_label_alias: Alias
+seksi_add_modal_label_alias_plc: Masukkan Alias
+seksi_add_modal_label_alias_error: Alias Wajib Diisi!
+
+seksi_edit_modal_title: Edit Seksi
+seksi_edit_modal_label_nama: Nama
+seksi_edit_modal_label_nama_plc: Masukkan Nama
+seksi_edit_modal_label_nama_error: Nama Wajib Diisi!
+seksi_edit_modal_label_alias: Alias
+seksi_edit_modal_label_alias_plc: Masukkan Alias
+seksi_edit_modal_label_alias_error: Alias Wajib Diisi!
+
+seksi_edit_success_header: Berhasil
+seksi_edit_success_message: Berhasil Mengupdate Seksi
+seksi_edit_failed_header: Gagal Mengupdate Seksi
+seksi_edit_failed_message: Data Seksi Gagal Diupdate.
+
+seksi_delete_success_header: Berhasil
+seksi_delete_success_message: Berhasil Menghapus Seksi
+seksi_delete_failed_header: Gagal Menghapus Seksi
+seksi_delete_failed_message: Seksi Gagal Dihapus, Dengan Kemungkinan Bahwa Seksi Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.

@@ -1,0 +1,81 @@
+asset: Daftar Aset
+
+show_asset_col_1: Nomor Aset
+show_asset_col_2: Tipe Aset
+show_asset_col_3: Plant
+show_asset_col_4: Deskripsi Aset
+show_asset_col_5: Ukuran Aset
+show_asset_col_6: Capitalized On
+show_asset_col_7: Status
+show_asset_col_8: Useful Life
+show_asset_col_9: Aksi
+
+
+asset_btn_add: Tambah Aset
+asset_btn_import: Impor Data Aset
+asset_import_modal_label_file_csv: Berkas Aset (CSV)
+asset_import_modal_label_file_csv_plc: Pilih Berkas Aset 
+asset_import_modal_label_file_csv_error: Berkas Aset Wajib diserkatan
+
+asset_add_modal_title: Tambah Aset
+asset_add_modal_label_asset_image: Gambar Aset
+asset_add_modal_label_asset_image_error: Gambar Aset Wajib disertakan
+asset_add_modal_label_asset_number: No. Aset
+asset_add_modal_label_asset_number_plc: Masukkan No. Asset
+asset_add_modal_label_asset_number_error: No. Aset Wajib Diisi!
+asset_add_modal_label_asset_type: Tipe Aset
+asset_add_modal_label_asset_type_plc: Pilih Tipe Asset
+asset_add_modal_label_asset_type_error: Tipe Aset Wajib Dipilih!
+asset_add_modal_label_asset_plant: Plant Asset
+asset_add_modal_label_asset_plant_plc: Masukkan Plant Asset 
+asset_add_modal_label_asset_plant_error: Plant Asset Wajib Diisi!
+asset_add_modal_label_asset_description: Deskripsi
+asset_add_modal_label_asset_description_plc: Masukkan Deskripsi
+asset_add_modal_label_asset_description_error: Deskripsi Wajib Diisi!
+asset_add_modal_label_asset_size: Ukuran
+asset_add_modal_label_asset_size_plc: Masukkan Ukuran
+asset_add_modal_label_asset_size_error: Ukuran Wajib Diisi!
+asset_add_modal_label_asset_acq: Acq
+asset_add_modal_label_asset_acq_plc: Masukkan Nilai Acq
+asset_add_modal_label_asset_acq_error: Nilai Acq Wajib Diisi!
+asset_add_modal_label_asset_capitalized: capitalized
+asset_add_modal_label_asset_capitalized_plc: Masukkan Nilai capitalized
+asset_add_modal_label_asset_capitalized_error: capitalized
+asset_add_modal_label_asset_useful: useful
+asset_add_modal_label_asset_useful_plc: Masukkan Nilai useful
+asset_add_modal_label_asset_useful_error: useful
+asset_add_modal_label_asset_accumulated: accumulated
+asset_add_modal_label_asset_accumulated_plc: Masukkan Nilai accumulated
+asset_add_modal_label_asset_accumulated_error: accumulated
+asset_add_modal_label_asset_cost_center: cost_center
+asset_add_modal_label_asset_cost_center_plc: Masukkan Nilai cost_center
+asset_add_modal_label_asset_cost_center_error: cost_center
+asset_add_modal_label_asset_coordinate: coordinate
+asset_add_modal_label_asset_coordinate_plc: Masukkan Nilai coordinate
+asset_add_modal_label_asset_coordinate_error: coordinate
+asset_add_modal_label_asset_mapslink: mapslink
+asset_add_modal_label_asset_mapslink_plc: Masukkan Nilai mapslink
+asset_add_modal_label_asset_mapslink_error: mapslink
+
+asset_edit_add: Edit Aset
+asset_edit_modal_title: Edit Aset
+
+asset_add_success_header: Berhasil
+asset_add_success_message: Berhasil Menambahkan Aset
+asset_add_failed_header: Gagal Menambahkan Aset
+asset_add_failed_message: Data Aset Gagal Ditambahkan.
+
+asset_edit_success_header: Berhasil
+asset_edit_success_message: Berhasil Mengupdate Aset
+asset_edit_failed_header: Gagal Mengupdate Aset
+asset_edit_failed_message: Data Aset Gagal Diupdate.
+
+asset_delete_success_header: Berhasil
+asset_delete_success_message: Berhasil Menghapus Data Aset
+asset_delete_failed_header: Gagal Menghapus Data Aset
+asset_delete_failed_message: Data Aset Gagal Dihapus, Kemungkinan Data Aset Sudah Terhapus atau Data Revaluation Terkait Asset masih terdata atau Mungkin Terkait Kendala Koneksi.
+
+asset_status_success_header: Berhasil
+asset_status_success_message: Berhasil Mengupdate Status Aset
+asset_status_failed_header: Gagal Mengupdate Status Aset
+asset_status_failed_message: Status Aset Gagal Diupdate, Dengan Kemungkinan Bahwa Aset Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.

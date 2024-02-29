@@ -1,0 +1,16 @@
+title: Dashboard - API Gateway
+welcome: Welcome Back !
+enter: Sign in to continue to API Gateway System.
+username: Username
+username_placeholder: Enter Username
+password: Password
+password_placeholder: Enter Password
+forget: Fotgot Password?
+remember: Remember Me
+login_button: Sign In
+sosmed: Our Sosial Media
+login_success: Login Successfully
+login_success_message: Redirecting You to The Dashboard
+login_failed: Login Failed
+login_failed_message: Username & Password Wrong
+login_empty_message: Username & Password can\'t be empty

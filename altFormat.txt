@@ -1,0 +1,17 @@
+altFormat
+altInput
+altInputClass
+allowInput
+allowInvalidPreload
+appendTo
+ariaDateFormat
+conjunction
+clickOpens
+dateFormat
+defaultDate
+defaultHour
+defaultMinute
+disable
+disableMobile
+enable
+enableTime

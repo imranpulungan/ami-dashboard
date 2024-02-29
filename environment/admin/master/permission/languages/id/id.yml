@@ -1,0 +1,39 @@
+parent: User Management
+permission: Permission
+
+show_permission_col_1: "No"
+show_permission_col_2: Role
+show_permission_col_3: Action
+hide_permission_col_1: ID Role
+
+permission_btn_add: Tambah Permission
+permission_add_modal_title: Tambah Permission
+permission_add_modal_label_role: Role
+permission_add_modal_label_role_plc: Masukkan Role
+permission_add_modal_label_role_error: Role Wajib Diisi!
+permission_add_modal_label_role_permission: Role Permission
+permission_add_modal_label_role_permission_plc: Masukkan Role Permission
+permission_add_modal_label_role_permission_error: Role Permission Wajib Diisi!
+
+permission_edit_modal_title: Edit Permission
+permission_edit_modal_label_role: Role
+permission_edit_modal_label_role_plc: Masukkan Role
+permission_edit_modal_label_role_error: Role Wajib Diisi!
+permission_edit_modal_label_role_permission: Role Permission
+permission_edit_modal_label_role_permission_plc: Masukkan Role Permission
+permission_edit_modal_label_role_permission_error: Role Permission Wajib Diisi!
+
+permission_add_success_header: Berhasil
+permission_add_success_message: Berhasil Menambahkan Permission
+permission_add_failed_header: Gagal Menambahkan Permission
+permission_add_failed_message: Data Permission Gagal Ditambahkan.
+
+permission_edit_success_header: Berhasil
+permission_edit_success_message: Berhasil Mengupdate Permission
+permission_edit_failed_header: Gagal Mengupdate Permission
+permission_edit_failed_message: Data Permission Gagal Diupdate.
+
+permission_delete_success_header: Berhasil
+permission_delete_success_message: Berhasil Menghapus Permission
+permission_delete_failed_header: Gagal Menghapus Permission
+permission_delete_failed_message: Permission Gagal Dihapus, Dengan Kemungkinan Bahwa Permission Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.

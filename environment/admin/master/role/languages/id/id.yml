@@ -1,0 +1,27 @@
+role: Role
+
+show_role_col_1: "No"
+show_role_col_2: Nama
+show_role_col_3: Action
+hide_role_col_1: ID Role
+
+role_btn_add: Tambah Role
+role_add_modal_title: Tambah Role
+role_add_modal_label_nm_role: Nama Role
+role_add_modal_label_nm_role_plc: Masukkan Nama Role
+role_add_modal_label_nm_role_error: Nama Role Wajib Diisi!
+
+role_edit_modal_title: Edit Role
+role_edit_modal_label_nm_role: Nama Role
+role_edit_modal_label_nm_role_plc: Masukkan Nama Role
+role_edit_modal_label_nm_role_error: Nama Role Wajib Diisi!
+
+role_edit_success_header: Berhasil
+role_edit_success_message: Berhasil Mengupdate Role
+role_edit_failed_header: Gagal Mengupdate Role
+role_edit_failed_message: Data Role Gagal Diupdate.
+
+role_delete_success_header: Berhasil
+role_delete_success_message: Berhasil Menghapus Role
+role_delete_failed_header: Gagal Menghapus Role
+role_delete_failed_message: Role Gagal Dihapus, Dengan Kemungkinan Bahwa Role Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.

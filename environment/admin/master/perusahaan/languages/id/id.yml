@@ -1,0 +1,34 @@
+perusahaan: Daftar Perusahaan
+
+show_perusahaan_col_1: "No"
+show_perusahaan_col_2: Nama
+show_perusahaan_col_3: Alias
+show_perusahaan_col_4: Action
+hide_perusahaan_col_1: ID Perusahaan
+
+perusahaan_btn_add: Tambah Perusahaan
+perusahaan_add_modal_title: Tambah Perusahaan
+perusahaan_add_modal_label_nama: Nama
+perusahaan_add_modal_label_nama_plc: Masukkan Nama
+perusahaan_add_modal_label_nama_error: Nama Wajib Diisi!
+perusahaan_add_modal_label_alias: Alias
+perusahaan_add_modal_label_alias_plc: Masukkan Alias
+perusahaan_add_modal_label_alias_error: Alias Wajib Diisi!
+
+perusahaan_edit_modal_title: Edit Perusahaan
+perusahaan_edit_modal_label_nama: Nama
+perusahaan_edit_modal_label_nama_plc: Masukkan Nama
+perusahaan_edit_modal_label_nama_error: Nama Wajib Diisi!
+perusahaan_edit_modal_label_alias: Alias
+perusahaan_edit_modal_label_alias_plc: Masukkan Alias
+perusahaan_edit_modal_label_alias_error: Alias Wajib Diisi!
+
+perusahaan_edit_success_header: Berhasil
+perusahaan_edit_success_message: Berhasil Mengupdate Perusahaan
+perusahaan_edit_failed_header: Gagal Mengupdate Perusahaan
+perusahaan_edit_failed_message: Data Perusahaan Gagal Diupdate.
+
+perusahaan_delete_success_header: Berhasil
+perusahaan_delete_success_message: Berhasil Menghapus Perusahaan
+perusahaan_delete_failed_header: Gagal Menghapus Perusahaan
+perusahaan_delete_failed_message: Perusahaan Gagal Dihapus, Dengan Kemungkinan Bahwa Perusahaan Sudah Terhapus, atau Mungkin Terkait Kendala Koneksi.
