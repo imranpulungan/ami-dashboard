@@ -1,5 +1,10 @@
 'use strict';
 
+var copyToClipboard = (copyText = "") => {    
+    navigator.clipboard.writeText(copyText);
+    alert(copyText);
+}
+
 var ExAsUser = (function() {
     var idTable = "#AsTable";
     var MAIN = 'master/asset/';
@@ -217,11 +222,12 @@ var ExAsUser = (function() {
             return '<button type="button" class="btn btn-sm rounded-pill btn-danger waves-effect waves-light text-center gantiStatus" style="min-width: 100px"' + (id_asset == sSion['token'] ? ' disabled' : '') + '>Error</button>';
         }
     }
+        
     // baseUri("master/asset/edit/1")
     var action_btn = function(data) {
         return '<div class="btn-group" role="group">' +
             // (ExAs.Permission('VW') ? '<button type="button" class="btn btn-primary btn-icon waves-effect waves-light tombolDetail"><i class="ri-search-line"></i></button>' : '') +
-            (ExAs.Permission('UP') ? `<a href="${e3nCeL0t}${MAIN}edit/${data.asset_number}" type="button" class="btn btn-warning btn-icon waves-effect waves-light tombolEdit"><i class="ri-edit-2-fill"></i></button>` : '') +
+            (ExAs.Permission('UP') ? `<a href="${e3nCeL0t}${MAIN}edit/${data.asset_number}" type="button" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>` : '') +
             (ExAs.Permission('DT') ? '<button type="button" class="btn btn-danger btn-icon waves-effect waves-light tombolDelete"><i class="ri-delete-bin-5-line"></i></button>' : '') +
             '</div>';
     }
@@ -279,8 +285,8 @@ var ExAsUser = (function() {
                 }
             }
         })
-    }
-
+    } 
+    
     var loadType = function() {
         $.ajax({
             url: e3nCeL0t + MoDaD + MAIN + "category",
@@ -296,13 +302,10 @@ var ExAsUser = (function() {
                     console.log(res);
                     var select = "";
                     if (res.success) {
-                        select += "<option></option>";
                         $.each(res.data, function(index, item) {
-                            select += '<option value=' + item.category + '>' + item.category + '</option>';
-                        })
+                            select += `<li class="m-1"><button type="button" class="btn btn-primary btn-sm" onclick="copyToClipboard('${item.category}')">Copy</button> ${item.category}</li>`;
+                        });
                         $('#asset_type').append(select);
-                        $('#edit_asset_type').append(select);
-                        $('#import_asset_type').append(select);
                         
                     }
                 }
@@ -324,11 +327,9 @@ var ExAsUser = (function() {
                     var res = JSON.parse(respon)
                     var select = "";
                     $('#asset_plant').html('');
-                    // $('#asset_plant_edit').html('');
                     if (res.success) {
-                        select += "<option></option>";
                         $.each(res.data, function(index, item) {
-                            select += `<option value=${item.id_loc}>${item.location}</option>`;
+                            select += `<li class="m-1"><button type="button" class="btn btn-primary btn-sm" onclick="copyToClipboard('${item.id_loc}')">Copy</button> ${item.location} (${item.id_loc})</li>`;
                         })
                         $('#asset_plant').html(select);
                         $('#edit_asset_plant').html(select);
@@ -494,7 +495,7 @@ var ExAsUser = (function() {
                 if (isValid == true) {
                     $('.full-loading').addClass("active");
                     $.ajax({
-                        url: e3nCeL0t + MoDaD + MAIN + "add_json",
+                        url: e3nCeL0t + MoDaD + MAIN + "insert_json",
                         method: "POST",
                         data: data,
                         processData: false,
@@ -747,7 +748,7 @@ var ExAsUser = (function() {
                 results.addLayer(initMarker(data.results[i].latlng));
             }
         });
-    }
+    }    
 
     return {
         run: function() {
@@ -782,6 +783,12 @@ jQuery(document).ready(function($){
     var image = document.getElementById('sample_image');
     var cropper;
 
+    $(".btn-copy").on('click', function(event){
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        //(... rest of your JS code)
+    });
+
     $('#asset_image').change(function(event) {
         cropper_ratio_selected = cropper_ratio.product;
         image_width_selected = product_image.width;
@@ -807,36 +814,4 @@ jQuery(document).ready(function($){
             });
         }
     });
-
-    // $modal.on('shown.bs.modal', function() {
-        cropper = new Cropper(image, {
-            aspectRatio: cropper_ratio_selected,
-            viewMode: 0,
-            preview: '.preview'
-        });
-    // }).on('hidden.bs.modal', function() {
-    //     cropper.destroy();
-    //     cropper = null;
-    // });
-
-    // $('#crop').click(function() {
-    //     canvas = cropper.getCroppedCanvas({
-    //         width: image_width_selected,
-    //         height: image_height_selected
-    //     });
-
-    //     canvas.toBlob(function(blob) {
-    //         url = URL.createObjectURL(blob);
-    //         var reader = new FileReader();
-    //         reader.readAsDataURL(blob);
-    //         reader.onloadend = function() {
-    //             var base64data = reader.result;
-    //             $modal.modal('hide');
-    //             if (cropper_ratio_selected == cropper_ratio.product) {
-    //                 $('#img_product_base64').val(base64data);
-    //                 $("#img_product").attr("src", base64data)
-    //             }
-    //         };
-    //     });
-    // });
 })

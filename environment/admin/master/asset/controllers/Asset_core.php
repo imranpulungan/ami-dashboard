@@ -20,7 +20,6 @@ class Asset_core extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
         Initialized();
     }
 

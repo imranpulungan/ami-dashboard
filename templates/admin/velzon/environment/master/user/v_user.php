@@ -123,7 +123,6 @@
                                             <th><?= getLangKey('show_user_col_6'); ?></th>
                                             <th><?= getLangKey('show_user_col_7'); ?></th>
                                             <th><?= getLangKey('show_user_col_8'); ?></th>
-                                            <th><?= getLangKey('show_user_col_9'); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>

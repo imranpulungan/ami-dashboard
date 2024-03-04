@@ -196,101 +196,8 @@
 </div>
 
 <?php if (hasPermission('IN')) : ?>
-    <div class="modal fade" id="modalTambah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <form autocomplete="off" enctype="multipart/form-data" method="post" data-type="save" id="form_tambah" class="needs-validation" novalidate>
-                <div class="modal-content border-0 overflow-hidden">
-                    <div class="modal-header p-3">
-                        <h4 class="card-title mb-0"><?= getLangKey('asset_add_modal_title'); ?></h4>
-                        <button type="button" class="btn-close tutup"></button>
-                    </div>
-                    <div class="alert alert-warning rounded-0 mb-0">
-                        <p class="mb-0">Tanda <span class="fw-semibold">(*)</span> Wajib Diisi</p>
-                    </div>
-                    <div class="modal-body pb-2">
-                        <div class="mb-3 row">
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <div class="info-current-location"></div>
-                                <div id="map"></div>
-                                <input type="hidden" id="asset_coordinate" name="asset_coordinate" class="form-control"/>
-                            </div>                            
-                            <div class="col-lg-6 col-md-6 col-sm-6 pt-5">
-                                <label for="asset_image" class="btn btn-light w-100">
-                                    <h3>Unggah Foto Aset</h3>
-                                </label>
-                                <input id="asset_image" name="asset_image" style="visibility:hidden;" type="file">
-                                <input type="hidden" id="img-crop">
-                                <img src="" id="sample_image" style="max-height: 300px;" />
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_number'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_number'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_number_error'); ?>" id="asset_number" name="asset_number" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_number_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_type'); ?> <span class="text-danger">*</span></label>
-                            <select class="form-control select2" required style="width: 100%" id="asset_type" name="asset_type"></select>
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_type_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_plant'); ?> <span class="text-danger">*</span></label>
-                            <select class="form-control select2" required style="width: 100%" id="asset_plant" name="asset_plant"></select>
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_plant_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_description'); ?> <span class="text-danger">*</span></label>
-                            <input value="test" type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_description_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_description_error'); ?>" id="asset_description" name="asset_description" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_description_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_size'); ?> <span class="text-danger">*</span></label>
-                            <input value="2" type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_size_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_size_error'); ?>" id="asset_size" name="asset_size" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_size_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_acq'); ?> <span class="text-danger">*</span></label>
-                            <input value="1" type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>" id="asset_acq" name="asset_acq" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_acq_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_capitalized'); ?> <span class="text-danger">*</span></label>
-                            <input type="date" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_capitalized_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_capitalized_error'); ?>" id="asset_capitalized_on" name="asset_capitalized_on" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_capitalized_error'); ?></div>
-                        </div> 
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_useful'); ?> <span class="text-danger">*</span></label>
-                            <input value="1" type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_useful_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_useful_error'); ?>" id="asset_useful" name="asset_useful" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_useful_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_accumulated'); ?> <span class="text-danger">*</span></label>
-                            <input value="1" type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>" id="asset_accumulated" name="asset_accumulated" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_cost_center'); ?> <span class="text-danger">*</span></label>
-                            <input value="-" type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_cost_center_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_cost_center_error'); ?>" id="asset_cost_center" name="asset_cost_center" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_cost_center_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_mapslink'); ?> <span class="text-danger">*</span></label>
-                            <input value="-" type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_mapslink_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_mapslink_error'); ?>" id="asset_mapslink" name="asset_mapslink" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_mapslink_error'); ?></div>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="tutup btn btn-danger font-weight-bold">Batal</button>
-                        <button type="submit" class="btn btn-primary font-weight-bold" id="submit">Simpan</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <div class="modal fade" id="modalImport" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <form autocomplete="off" method="post" data-type="save" id="form_import" class="needs-validation" novalidate>
                 <div class="modal-content border-0 overflow-hidden">
                     <div class="modal-header p-3">
@@ -298,7 +205,17 @@
                         <button type="button" class="btn-close tutup"></button>
                     </div>
                     <div class="modal-body pb-2">
-                        <div class="mb-3">
+                        <div class="row">
+                            <div class="mb-3 col-lg-5 col-md-5 col-sm-5">
+                                <label for="asset_type">Jenis Aset</label>
+                                <ul id="asset_type"></ul>
+                            </div>
+                            <div class="mb-3 col-lg-7 col-md-7 col-sm-7">
+                                <label for="asset_plant">Lokasi Aset</label>
+                                <ul id="asset_plant"></ul>
+                            </div>
+                        </div>
+                        <!-- <div class="mb-3">
                             <label><?= getLangKey('asset_add_modal_label_asset_type'); ?> <span class="text-danger">*</span></label>
                             <select class="form-control select2" required style="width: 100%" id="import_asset_type" name="asset_type"></select>
                             <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_type_error'); ?></div>
@@ -307,9 +224,10 @@
                             <label><?= getLangKey('asset_add_modal_label_asset_plant'); ?> <span class="text-danger">*</span></label>
                             <select class="form-control select2" required style="width: 100%" id="import_asset_plant" name="asset_plant"></select>
                             <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_plant_error'); ?></div>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="name" class="form-label"><?= getLangKey('asset_import_modal_label_file_csv'); ?></label>
+                            <a href="<?= base_url('asset/sample-asset-import.csv') ?>">Contoh Berkas</a>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input form-control" id="file_csv" name="file_csv" accept=".csv, .txt" data-error="<?= getLangKey('asset_import_modal_label_file_csv_error'); ?>" required />
                                 <!-- <label class="custom-file-label text text-muted" for="customFile"><?= getLangKey('asset_import_modal_label_file_csv_plc'); ?></label> -->
@@ -321,94 +239,6 @@
                     <div class="modal-footer">
                         <button type="button" class="tutup btn btn-danger font-weight-bold">Batal</button>
                         <button type="button" class="btn btn-primary font-weight-bold" id="submitImport">Simpan</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-<?php endif; ?>
-
-<?php if (hasPermission('UP')) : ?>
-    <div class="modal fade" id="modalEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <form autocomplete="off" method="post" data-type="save" id="form_edit" class="needs-validation" novalidate>
-                <div class="modal-content border-0 overflow-hidden">
-                    <div class="modal-header p-3">
-                        <h4 class="card-title mb-0" id="modal_header_edit"><?= getLangKey('asset_edit_add'); ?></h4>
-                        <button type="button" class="btn-close tutup"></button>
-                    </div>
-                    <div class="alert alert-warning rounded-0 mb-0">
-                        <p class="mb-0">Tanda <span class="fw-semibold">(*)</span> Wajib Diisi</p>
-                    </div>
-                    <div class="modal-body pb-2">
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_number'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_number'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_number_error'); ?>" id="edit_asset_number" name="asset_number" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_number_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_type'); ?> <span class="text-danger">*</span></label>
-                            <select class="form-control select2" required style="width: 100%" id="edit_asset_type" name="asset_type"></select>
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_type_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_plant'); ?> <span class="text-danger">*</span></label>
-                            <select class="form-control select2" required style="width: 100%" id="edit_asset_plant" name="asset_plant"></select>
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_plant_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_description'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_description_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_description_error'); ?>" id="edit_asset_description" name="asset_description" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_description_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_size'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_size_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_size_error'); ?>" id="edit_asset_size" name="asset_size" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_size_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_acq'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>" id="edit_asset_acq" name="asset_acq" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_acq_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_capitalized'); ?> <span class="text-danger">*</span></label>
-                            <input type="date" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_capitalized_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_capitalized_error'); ?>" id="edit_asset_capitalized_on" name="asset_capitalized_on" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_capitalized_error'); ?></div>
-                        </div> 
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_useful'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_useful_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_useful_error'); ?>" id="edit_asset_useful" name="asset_useful" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_useful_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_accumulated'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>" id="edit_asset_accumulated" name="asset_accumulated" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_cost_center'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_cost_center_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_cost_center_error'); ?>" id="edit_asset_cost_center" name="asset_cost_center" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_cost_center_error'); ?></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_coordinate'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_coordinate_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_coordinate_error'); ?>" id="edit_asset_coordinate" name="asset_coordinate" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_coordinate_error'); ?></div>
-                        </div>
-                        <div class="mb-3">
-                            <label><?= getLangKey('asset_add_modal_label_asset_mapslink'); ?> <span class="text-danger">*</span></label>
-                            <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_mapslink_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_mapslink_error'); ?>" id="edit_asset_mapslink" name="asset_mapslink" />
-                            <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_mapslink_error'); ?></div>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <!-- <div class="modal-body pt-1">
-                    </div> -->
-                    <div class="modal-footer">
-                        <button type="button" class="tutup btn btn-danger font-weight-bold">Batal</button>
-                        <button type="button" class="btn btn-primary font-weight-bold" id="submitEdit">Simpan</button>
                     </div>
                 </div>
             </form>
