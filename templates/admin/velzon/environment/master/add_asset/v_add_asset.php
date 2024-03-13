@@ -154,39 +154,51 @@
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_size_error'); ?></div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-                                <label><?= getLangKey('asset_add_modal_label_asset_acq'); ?> <span class="text-danger">*</span></label>
-                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>" id="asset_acq" name="asset_acq" />
-                                <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_acq_error'); ?></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_capitalized'); ?> <span class="text-danger">*</span></label>
                                 <input type="date" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_capitalized_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_capitalized_error'); ?>" id="asset_capitalized_on" name="asset_capitalized_on" />
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_capitalized_error'); ?></div>
-                            </div> 
+                            </div>                             
+                        </div>
+                        <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_useful'); ?> <span class="text-danger">*</span></label>
                                 <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_useful_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_useful_error'); ?>" id="asset_useful" name="asset_useful" />
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_useful_error'); ?></div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-                                <label><?= getLangKey('asset_add_modal_label_asset_accumulated'); ?> <span class="text-danger">*</span></label>
-                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>" id="asset_accumulated" name="asset_accumulated" />
-                                <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?></div>
-                            </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_cost_center'); ?> <span class="text-danger">*</span></label>
                                 <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_cost_center_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_cost_center_error'); ?>" id="asset_cost_center" name="asset_cost_center" />
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_cost_center_error'); ?></div>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
+                                <label><?= getLangKey('asset_add_modal_label_asset_accumulated'); ?> <span class="text-danger">*</span></label>
+                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>" id="asset_accumulated" name="asset_accumulated" />
+                                <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?></div>
                             </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
+                                <label><?= getLangKey('asset_add_modal_label_asset_acq'); ?> <span class="text-danger">*</span></label>
+                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>" id="asset_acq" name="asset_acq" />
+                                <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_acq_error'); ?></div>
+                            </div> 
+                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                <label><?= getLangKey('asset_add_modal_label_asset_book_value'); ?> <span class="text-danger">*</span></label>
+                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_book_value_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?>" id="book_value" name="book_value" />
+                                <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?></div>
+                            </div>                                                                                                       
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                <label><?= getLangKey('asset_add_modal_label_asset_additional_description'); ?> <span class="text-danger">*</span></label>
+                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_additional_description_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_additional_description_error'); ?>" id="additional_description" name="additional_description" />
+                                <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_additional_description_error'); ?></div>
+                            </div>        
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_mapslink'); ?> <span class="text-danger">*</span></label>
                                 <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_mapslink_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_mapslink_error'); ?>" id="asset_mapslink" name="asset_mapslink" />
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_mapslink_error'); ?></div>
-                            </div>   
+                            </div>        
                         </div>
                                                     
                     </div><!-- end card-body -->

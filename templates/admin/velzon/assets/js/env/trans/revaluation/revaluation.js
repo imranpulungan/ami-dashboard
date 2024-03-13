@@ -433,6 +433,7 @@ var ExAsUser = (function() {
                         async: false,
                         data: {
                             id_revaluation: drop.id_revaluation,
+                            asset_number: drop.asset_number,
                             scrty: true
                         },
                         success: function(response) {

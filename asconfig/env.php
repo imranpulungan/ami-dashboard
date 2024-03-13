@@ -38,7 +38,8 @@ $config['env'] = [
     /** Domain List */
     'DomainList' => [
         'localhost',
-        '127.0.0.1'
+        '127.0.0.1',
+        'dev.inalum.id'
     ],
 
     'OnlyIndonesia' => false,

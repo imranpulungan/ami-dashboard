@@ -52,7 +52,7 @@ var ExAsUser = (function() {
                     if (res.success) {
                         select += "<option></option>";
                         $.each(res.data, function(index, item) {
-                            select += '<option value=' + item.category + '>' + item.category + '</option>';
+                            select += '<option value=' + item.numcode + '>' + item.category + '</option>';
                         })
                         $('#asset_type').append(select);
                         $('#edit_asset_type').append(select);
@@ -229,15 +229,20 @@ var ExAsUser = (function() {
                 var respon = ExAs.uXvbI(response)
                 if (ExAs.Utils.Json.valid(respon)) {
                     var res = JSON.parse(respon);
-                    const coordinate = res.data.coordinate.split(",");
+                    if (res.data.coordinate != "") {
+                        const coordinate = res.data.coordinate.split(",");                    
+                        console.log(coordinate);
+                        currentLatitude = coordinate[0];
+                        currentLongitude = coordinate[1];
+                        $("#asset_coordinate").val(`${currentLatitude},${currentLongitude}`);
+                        $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${currentLatitude} °, Longitude: ${currentLongitude} °</h5>`);                        
+                        initMap();
+                    } else{
+                        geoFindMe();
+                    }
                     
-                    currentLatitude = coordinate[0];
-                    currentLongitude = coordinate[1];
-                    $("#asset_coordinate").val(`${currentLatitude},${currentLongitude}`);
-                    $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${currentLatitude} °, Longitude: ${currentLongitude} °</h5>`);
-                    initMap();
                     
-                    
+                    console.log(res.data.asset_type);
                     $("#old_image").val(res.data.asset_image);
                     $("#img_asset").prop("src", `${e3nCeL0t}upload/image/${res.data.asset_image}`);
                     $("#asset_number").val(res.data.asset_number);
@@ -251,6 +256,9 @@ var ExAsUser = (function() {
                     $("#asset_accumulated").val(res.data.accumulated_depreciation);
                     $("#asset_cost_center").val(res.data.cost_center);
                     $("#asset_mapslink").val(res.data.map_link);
+                    $("#book_value").val(res.data.book_value);
+                    $("#additional_description").val(res.data.additional_description);
+                    
                 }
             },
             error: function(e) {

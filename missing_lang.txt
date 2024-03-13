@@ -1045,4 +1045,10 @@ sksdseksi
 master_status_success_header
 master_status_success_message
 show_user_col_9
+asset_add_modal_label_asset_book_value
+asset_add_modal_label_asset_book_value_plc
+asset_add_modal_label_asset_book_value_error
+asset_add_modal_label_asset_additional_description
+asset_add_modal_label_asset_additional_description_plc
+asset_add_modal_label_asset_additional_description_error
 

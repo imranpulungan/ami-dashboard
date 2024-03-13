@@ -119,13 +119,12 @@ class Asset_core extends CI_Controller
     public function detail()
     {
         if ($this->input->get('scrty') == true && hasOwnProgram()) {
-            $data['asset_number'] = "223124124";
             $headers = array(
                 'X-API-TOKEN:' . getEnvi('API_TOKEN'),
                 'X-APP-KEY:' . getEnvi('API_APP_KEY'),
                 'Authorization:' . getSession('token')
             );
-            echo base64_encode($this->api->getData(getEnvi('schema') . '/master/asset', $data, false, $headers));
+            echo base64_encode($this->api->getData(getEnvi('schema') . '/master/asset?asset_number=' . $this->input->get("asset_number"), null, false, $headers));
         } else {
             error_404();
         }
@@ -148,8 +147,6 @@ class Asset_core extends CI_Controller
 
     public function insert()
     {
-        $generate_time = time();
-        
         if ($this->input->post('scrty') == true && hasOwnProgram()) {            
             $data['asset_number']               = $this->input->post('asset_number');            
             $data['asset_type']                 = $this->input->post('asset_type');            
@@ -163,7 +160,8 @@ class Asset_core extends CI_Controller
             $data['cost_center']                = $this->input->post('asset_cost_center');
             $data['coordinate']                 = $this->input->post('asset_coordinate');
             $data['map_link']                   = $this->input->post('asset_mapslink');
-            
+            $data['additional_description']     = $this->input->post('additional_description');
+            $data['book_value']                 = $this->input->post('book_value');            
             
             $img_asset_base64 = $this->input->post('img_asset_base64');    
 
@@ -176,7 +174,7 @@ class Asset_core extends CI_Controller
                 return;
             } 
 
-            $data['asset_image'] = $this->uploadImageBase64($generate_time, "upload/image/", $img_asset_base64, 'asset');
+            $data['asset_image'] = $this->uploadImageBase64("FA", "upload/image/", $img_asset_base64, $data['asset_number']);
 
             // $maxsize = 3145728;  //3MB; 2MB -> 2097152                             
             
@@ -246,11 +244,12 @@ class Asset_core extends CI_Controller
                 'text/plain'
             );
 
+
             if (!empty($_FILES['file_csv']['name']) && in_array($_FILES['file_csv']['type'], $fileMimes)) {
                 $array_data = [];
 
                 // Set delimiter
-                $delimiter = "|";
+                $delimiter = ";";
 
                 // Open uploaded CSV file with read-only mode
                 $csvFile = fopen($_FILES['file_csv']['tmp_name'], 'r');
@@ -260,19 +259,24 @@ class Asset_core extends CI_Controller
                 fgetcsv($csvFile);
 
                 // Parse data from CSV file line by line
+                
                 while (($getData = fgetcsv($csvFile, 0, $delimiter)) !== FALSE) {
                     $data['asset_number']               = $getData[0];
-                    $data['asset_type']                 = $this->input->post('asset_type');            
-                    $data['asset_plant']                = $this->input->post('asset_plant');
-                    $data['asset_size']                 = $getData[1];
-                    $data['asset_description']          = $getData[2];
-                    $data['acq_value']                  = $getData[3];
-                    $data['capitalized_on']             = $getData[4];
-                    $data['useful_life']                = $getData[5];
+                    $data['asset_type']                 = $getData[1];
+                    $data['asset_plant']                = $getData[2];
+                    $data['asset_size']                 = $getData[3];
+                    $data['asset_description']          = $getData[4];
+                    $data['acq_value']                  = $getData[5];
                     $data['accumulated_depreciation']   = $getData[6];
-                    $data['cost_center']                = $getData[7];
-                    $data['coordinate']                 = $getData[8];
-                    $data['map_link']                   = $getData[9];                    
+                    $data['book_value']                 = $getData[7];
+                    $data['capitalized_on']             = $getData[8];
+                    $data['useful_life']                = $getData[9];
+                    $data['cost_center']                = $getData[10];
+                    $data['business']                   = $getData[11];
+                    $data['additional_description']     = $getData[12];
+                    $data['coordinate']                 = !empty($getData[13]) ? str_replace(" ",",", str_replace(",",".", $getData[13])) : ""; 
+                    $data['map_link']                   = $getData[14]; 
+                    $data['asset_image']                = $getData[15];
                     array_push($array_data, $data);
 
                     // if (isset($result) && $result->success) {
@@ -286,6 +290,14 @@ class Asset_core extends CI_Controller
                 fclose($csvFile);
             }
 
+            $this->api->set_headers(
+                array(
+                    'X-API-TOKEN:' . getEnvi('API_TOKEN'),
+                    'X-APP-KEY:' . getEnvi('API_APP_KEY'),
+                    'Authorization:' . getSession('token'),
+                )
+            );     
+
             $json['json'] = base64_encode(json_encode($array_data));
             $result = $this->api->post(getEnvi('schema') . '/master/asset/json', $json, true, true);                
             
@@ -298,7 +310,7 @@ class Asset_core extends CI_Controller
                     'data' => [
                         'sukses' => true,
                         'berhasil' => $result->data,
-                        'gagal' => implode(', ', json_decode($result->error))
+                        // 'gagal' => implode(', ', json_decode($result->error))
                     ]
                 ]);
             } else {
@@ -316,8 +328,6 @@ class Asset_core extends CI_Controller
 
     public function update()
     {
-        $generate_time = time();
-
         if ($this->input->post('scrty') == true && hasOwnProgram()) {
             $data['asset_number']               = $this->input->post('asset_number');            
             $data['asset_type']                 = $this->input->post('asset_type');            
@@ -331,11 +341,13 @@ class Asset_core extends CI_Controller
             $data['cost_center']                = $this->input->post('asset_cost_center');
             $data['coordinate']                 = $this->input->post('asset_coordinate');
             $data['map_link']                   = $this->input->post('asset_mapslink');         
+            $data['additional_description']     = $this->input->post('additional_description');
+            $data['book_value']                 = $this->input->post('book_value');
             
             $img_asset_base64 = $this->input->post('img_asset_base64');    
 
             if (!empty($img_asset_base64)) {                
-                $data['asset_image'] = $this->uploadImageBase64($generate_time, "upload/image/", $img_asset_base64, 'asset');
+                $data['asset_image'] = $this->uploadImageBase64("FA", "upload/image/", $img_asset_base64, $data['asset_number']);
                 
                 // $old_image = "upload/image/".$this->input->post('old_image');
                 // if (file_exists($old_image)) unlink($old_image);            
