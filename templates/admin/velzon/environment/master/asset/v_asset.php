@@ -1,11 +1,7 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
 
-
-<link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" />
-<link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
 <style>
     .condition li {
         width: 200px;
@@ -82,7 +78,7 @@
             <div class="col-sm">
                 <div class="d-flex justify-content-sm-first gap-2">
 
-                    <div class="">
+                    <!-- <div class="">
                         <select class="form-select w-2 ml-2" id="tableLength">
                             <option value="10">10</option>
                             <option value="25">25</option>
@@ -90,7 +86,7 @@
                             <option value="100">100</option>
                             <option value="-1">All</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="search-box ms-2">
                         <input type="text" class="form-control" id="tableSearch" placeholder="Cari...">
@@ -130,8 +126,8 @@
                             <div class="d-flex" id="tableInfo"></div>
 
                             <div class="ml-auto d-none d-sm-none d-md-block">
-                                <div class="input-group">
-                                    <button type="button" class="btn btn-danger btn-label previous">
+                                <div class="input-group paginate_button">
+                                    <!-- <button type="button" class="btn btn-danger btn-label previous">
                                         <i class="ri-arrow-left-s-line label-icon align-middle fs-16 me-2"></i>
                                         Previous
                                     </button>
@@ -139,7 +135,7 @@
                                     <button type="button" class="btn btn-danger btn-label right next rounded-end">
                                         <i class="ri-arrow-right-s-line label-icon align-middle fs-16 ms-2"></i>
                                         Next
-                                    </button>
+                                    </button> -->
                                     <!-- <button type="button" class="btn btn-secondary btn-label rounded-start ms-1">
                                         <i class="ri-filter-line label-icon align-middle fs-16 me-2"></i>
                                         Filter
@@ -147,14 +143,14 @@
                                 </div>
                             </div>
                             <div class="ml-auto d-sm-block d-md-none">
-                                <div class="input-group">
-                                    <button type="button" class="btn btn-danger previous">
+                                <div class="input-group paginate_button">
+                                    <!-- <button type="button" class="btn btn-danger previous">
                                         <i class="ri-arrow-left-s-line label-icon align-middle fs-16"></i>
                                     </button>
                                     <input type="number" style="max-width: 50px;text-align:center" value="1" class="form-control existPaginate" readonly placeholder="">
                                     <button type="button" class="btn btn-danger right next rounded-end">
                                         <i class="ri-arrow-right-s-line label-icon align-middle fs-16"></i>
-                                    </button>
+                                    </button> -->
                                     <!-- <button type="button" class="btn btn-secondary rounded-start ms-1">
                                         <i class="ri-filter-line label-icon align-middle fs-16"></i>
                                     </button> -->
@@ -167,7 +163,8 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="live-preview">
+                        <div class="live-preview" style="width:100%">
+
                             <div class="table-responsive table-card">
                                 <table class="table align-middle table-nowrap mb-0" style="margin-top: 0px !important;" id="AsTable">
                                     <thead class="table-light">
@@ -245,11 +242,3 @@
         </div>
     </div>
 <?php endif; ?>
- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-crossorigin=""></script>
-<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
-<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
-<script src="https://unpkg.com/dropzone"></script>
-<script src="https://unpkg.com/cropperjs"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

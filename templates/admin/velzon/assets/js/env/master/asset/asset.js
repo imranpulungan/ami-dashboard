@@ -16,77 +16,60 @@ var ExAsUser = (function() {
     var sSion = JSON.parse(ses);
     var i = 0;
 
-    var currentLatitude;
-    var currentLongitude;
-    var map;
+    var limit = 10;
 
     var tb = new DataTable(idTable, {
+        dom : "Bfrtip",
+        processing: true,
+        serverSide: true,
+        paging: true,
+        info: true,
         "order": [
             [0, 'asc']
         ],
         scrollY: true,
         autoWidth: false,
-        scrollX: true,
-        scrollCollapse: false,
-        deferRender: true,
-        rowId: 'id_user',
-        // paging: !0,
-        // info: !0,
+        // scrollX: true,
+        // scrollCollapse: false,
+        // deferRender: true,
+        rowId: 'asset_number',
+        // // info: !0,
+        pagingType: 'simple_numbers',
         "fnInfoCallback": function(oSettings, iStart, iEnd, iMax, iTotal, sPre) {
             if (iTotal != 0) {
                 $('#tableInfo').html('Menampilkan Data ' + iStart + " - " + iEnd + " dari " + iTotal + ' Data')
             } else {
                 $('#tableInfo').html('Tidak ada Data')
-                $('.existPaginate').val(1)
+                // $('.existPaginate').val(1)
             }
             return iStart + " - " + iEnd + " of " + iTotal;
         },
-        select: false,
-        // dom: 'frtip',
-        columnDefs: [{
+        columns: [{
                 targets: i++,
                 width: "1%",
-                data: "asset_number",
-                render: function(data, type, full, meta) {
-                    return data
-                }
+                data: "asset_number"
             },
             {
                 targets: i++,
-                data: "asset_type_text",
-                render: function(data, type, full, meta) {
-                    return data
-                },
+                data: "asset_type_text"
                 // searchable: false
             },
             {
                 targets: i++,
-                data: "asset_plant_location",
-                render: function(data, type, full, meta) {
-                    return data
-                },
+                data: "asset_plant_location"
                 // searchable: false
             },
             {
                 targets: i++,
-                data: "asset_description",
-                render: function(data, type, full, meta) {
-                    return data
-                }
+                data: "asset_description"
             },
             {
                 targets: i++,
-                data: "asset_size",
-                render: function(data, type, full, meta) {
-                    return data;
-                },
+                data: "asset_size"
             },            
             {
                 targets: i++,
-                data: "capitalized_on",
-                render: function(data, type, full, meta) {
-                    return data;
-                },
+                data: "capitalized_on"
             },
             {
                 targets: i++,
@@ -110,37 +93,42 @@ var ExAsUser = (function() {
                 'Tidak ada data' +
                 '</p>'
         },
-        drawCallback: function(oSettings) {
-            tableApi = this.api()
-        },
+        drawCallback: function () {
+            var table = this.api();
+            var pageInfo = table.page.info();
+        },        
         ajax: function(oData, oCallback, oSetting) {
+            console.log(oData);
             $.ajax({
                 url: e3nCeL0t + MoDaD + MAIN + "load",
                 method: "POST",
                 async: true,
                 data: {
                     scrty: true,
+                    start: oData.start,
+                    limit: oData.search.value != '' ? 1 : limit,
+                    keyword: oData.search.value
                 },
                 success: function(response) {
-                    //     // ExAl.Loading.Table.Hide();
+                        ExAl.Loading.Table.Hide();
                     var respon = ExAs.uXvbI(response)
                     if (ExAs.Utils.Json.valid(respon)) {
                         var res = JSON.parse(respon)
-                            //console.log(res);
+                            console.log({res});
                         var no = 1;
                         var newLement = [];
 
                         if (res.success) {
-                            (res.data).forEach(element => {
+                            (res.data.data).forEach(element => {
                                 element.number = no++;
                                 newLement.push(element)
                             });
-                        }
+                        }                        
 
                         oCallback({
-                            recordsTotal: (newLement).length,
-                            recordsFiltered: (newLement).length,
-                            data: newLement
+                            recordsTotal: res.data?.recordsTotal ?? 0,
+                            recordsFiltered: res.data?.recordsFiltered ?? 0,
+                            data: res.data?.data ?? []
                         })
                     }
                 }
@@ -150,33 +138,11 @@ var ExAsUser = (function() {
 
     var tableCss = function() {
         $(idTable).attr('style', 'margin:0px !important');
+        $('.paging_simple_numbers').addClass('p-3');            
     }
 
     var hideSearch = function() {
-        $(idTable + "_filter").hide();
-        $(idTable + "_length").hide();
-    }
-
-    var hidePagination = function() {
-        $(idTable + "_paginate").hide();
-        $(idTable + "_info").hide();
-    }
-
-    var select2 = function() {
-        $('select.select2').each(function() {
-            var label = $(this).closest('div')
-            label = label.find('label').text()
-            label = label.replace('*', '')
-            $(this).select2({
-                placeholder: "Silahkan Pilih " + label,
-                allowClear: true,
-                dropdownParent: $(this).closest('.modal')
-            });
-        });
-    }
-
-    var pagination = function() {
-        ExAs.Table.Pagination(tableApi)
+        $(".dt-search").addClass("d-none");
     }
 
     var search = () => {
@@ -184,11 +150,7 @@ var ExAsUser = (function() {
          * Init All Environment
          */
         hideSearch();
-        hidePagination();
         tableCss();
-
-        pagination();
-        select2();
 
         var search = ExAs.Doc.Select("#tableSearch");
         ExAs.Doc.Listen('keyup', function() {
@@ -231,28 +193,6 @@ var ExAsUser = (function() {
             (ExAs.Permission('DT') ? '<button type="button" class="btn btn-danger btn-icon waves-effect waves-light tombolDelete"><i class="ri-delete-bin-5-line"></i></button>' : '') +
             '</div>';
     }
-
-    var geoFindMe = () => {
-        function success(position) {
-            currentLatitude = position.coords.latitude;
-            currentLongitude = position.coords.longitude;
-            $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${currentLatitude} °, Longitude: ${currentLongitude} °</h5>`);
-
-            initMap();
-        }
-    
-        function error() {
-            $(".info-current-location").html(`<h5 class="text-danger">"Unable to retrieve your location"</h5>`);
-        }
-
-        if (!navigator.geolocation) {
-            $(".info-current-location").html(`<h5 class="text-warning">Geolocation is not supported by your browser</h5>`);
-        } else {
-            $(".info-current-location").html(`<h5 class="text-info">Locating...</h5>`);
-            navigator.geolocation.getCurrentPosition(success, error);
-        }        
-    }
-
     /**
      * Getting Data From Database
      */
@@ -260,99 +200,15 @@ var ExAsUser = (function() {
     var loadData = () => {
         tb.ajax.reload(null, false);
     }
-
-    var loadRole = function() {
-        $.ajax({
-            url: e3nCeL0t + MoDaD + MAIN + "role",
-            method: "POST",
-            async: false,
-            data: {
-                scrty: true
-            },
-            success: function(response) {
-                var respon = ExAs.uXvbI(response)
-                if (ExAs.Utils.Json.valid(respon)) {
-                    var res = JSON.parse(respon)
-                    var select = "";
-                    if (res.success) {
-                        select += "<option></option>";
-                        $.each(res.data, function(index, item) {
-                            select += '<option value=' + item.id_role + '>' + item.nm_role + '</option>';
-                        })
-                        $('#role').append(select);
-                        $('#role_edit').append(select);
-                    }
-                }
-            }
-        })
-    } 
-    
-    var loadType = function() {
-        $.ajax({
-            url: e3nCeL0t + MoDaD + MAIN + "category",
-            method: "POST",
-            async: false,
-            data: {
-                scrty: true
-            },
-            success: function(response) {
-                var respon = ExAs.uXvbI(response)
-                if (ExAs.Utils.Json.valid(respon)) {
-                    var res = JSON.parse(respon)
-                    console.log(res);
-                    var select = "";
-                    if (res.success) {
-                        $.each(res.data, function(index, item) {
-                            select += `<li class="m-1"><button type="button" class="btn btn-primary btn-sm" onclick="copyToClipboard('${item.category}')">Copy</button> ${item.category}</li>`;
-                        });
-                        $('#asset_type').append(select);
-                        
-                    }
-                }
-            }
-        })
-    }
-
-    var loadPlant = function() {
-        $.ajax({
-            url: e3nCeL0t + MoDaD + MAIN + "plant",
-            method: "POST",
-            async: false,
-            data: {
-                scrty: true
-            },
-            success: function(response) {
-                var respon = ExAs.uXvbI(response)
-                if (ExAs.Utils.Json.valid(respon)) {
-                    var res = JSON.parse(respon)
-                    var select = "";
-                    $('#asset_plant').html('');
-                    if (res.success) {
-                        $.each(res.data, function(index, item) {
-                            select += `<li class="m-1"><button type="button" class="btn btn-primary btn-sm" onclick="copyToClipboard('${item.id_loc}')">Copy</button> ${item.location} (${item.id_loc})</li>`;
-                        })
-                        $('#asset_plant').html(select);
-                        $('#edit_asset_plant').html(select);
-                        $('#import_asset_plant').html(select);
-                    }
-                }
-            }
-        })
-    }
-
     /**
      * Transaction
      */
 
     var Transaction = function() {
         // inputEmailTrigger();
-        addTrigger();
         importTrigger();
-        updateTrigger();
-        updateClickTrigger();
         deleteTrigger();
         statusHoverTrigger();
-        openQrClickTrigger();
         statusClickTrigger();
     }
 
@@ -418,52 +274,6 @@ var ExAsUser = (function() {
             }
         });
     }
-
-    var addTrigger = function() {
-        if (ExAs.Doc.Exist("#form_tambah")) {
-
-            ExAs.Validator("#submit", function(isValid) {
-                var _input = $("#form_tambah").serializeArray();
-                _input.push({ name: "scrty", value: true })
-
-                $(this).addClass("spinner spinner-white spinner-right disabled");
-                $("#form_tambah button").attr("disabled", "disabled");
-
-                if (isValid == true) {
-                    $.ajax({
-                        url: e3nCeL0t + MoDaD + MAIN + "add",
-                        method: "POST",
-                        data: $.param(_input),
-                        success: function(response) {
-                            $("#submit").removeClass("spinner spinner-white spinner-right disabled");
-                            $("#form_tambah button").removeAttr("disabled");
-
-                            if (ExAs.Utils.Json.valid(response)) {
-                                var res = JSON.parse(response);
-
-                                if (res.status) {
-                                    ExAl.Toast.Success(res.header, res.message, function(result) {
-                                        if (result.isDismissed) {
-                                            loadData();
-                                            ExAl.Modal.Close('#modalTambah', true);
-                                        }
-                                    });
-                                } else {
-                                    ExAl.Toast.Failed(res.header, res.message);
-                                }
-                            }
-                        },
-                        error: function(e) {
-                            $("#submit").removeClass("spinner spinner-white spinner-right disabled");
-                        },
-                    });
-                } else {
-                    $("#submit").removeClass("spinner spinner-white spinner-right disabled");
-                    $("#form_tambah button").removeAttr("disabled");
-                }
-            });
-        }
-    };
 
     var importTrigger = function() {
         if (ExAs.Doc.Exist("#form_import")) {
@@ -569,90 +379,6 @@ var ExAsUser = (function() {
         }
     };
 
-    var updateClickTrigger = function() {
-        $("table tbody").on("click", ".tombolEdit", function() {
-            loadType();
-            loadPlant();
-            var drop = tb.row($(this).parents("tr")).data();
-            
-            $('#edit_asset_number').val(drop.asset_number);
-            $('#edit_asset_type').val(drop.asset_type).trigger('change');
-            $('#edit_asset_plant').val(drop.asset_plant).trigger('change');
-            $('#edit_asset_description').val(drop.asset_description);
-            $('#edit_asset_size').val(drop.asset_size);
-            $('#edit_asset_acq').val(drop.acq_value);
-            $('#edit_asset_capitalized_on').val(drop.capitalized_on);
-            $('#edit_asset_useful').val(drop.useful_life);
-            $('#edit_asset_accumulated').val(drop.accumulated_depreciation);
-            $('#edit_asset_cost_center').val(drop.cost_center);
-            $('#edit_asset_coordinate').val(drop.coordinate);
-            $('#edit_asset_mapslink').val(drop.maps_link);
-
-            ExAl.Modal.Show('#modalEdit');
-        });
-    }
-
-    var openQrClickTrigger = function() {
-        $("table tbody").on("click", ".tombolOpenQr", function() {
-            var drop = tb.row($(this).parents("tr")).data();         
-            $('#qrcode-plat-number').html(drop.kd_kendaraan);
-            $('#qrcode-canvas-image').attr('src', e3nCeL0t + drop.qr_code);
-            $('#qrcode-canvas-image').attr('height', '100%');
-            $('#qrcode-canvas-image').attr('width', '100%');
-
-            ExAl.Modal.Show('#modalQRCode');
-        });
-    }
-
-    var updateTrigger = function() {
-        if (ExAs.Doc.Exist("#form_edit")) {
-
-            ExAs.Validator("#submitEdit", function(isValid) {
-                if (isValid == true) {
-                    // updateTrigger();
-                    var _input = $("#form_edit").serializeArray();
-                    _input.push({ name: "scrty", value: true })
-
-                    $(this).addClass("spinner spinner-white spinner-right disabled");
-                    $("#form_edit button").attr("disabled", "disabled");
-
-                    $.ajax({
-                        url: e3nCeL0t + MoDaD + MAIN + "edit",
-                        method: "POST",
-                        data: $.param(_input),
-                        success: function(response) {
-                            $("#submitEdit").removeClass("spinner spinner-white spinner-right disabled");
-                            $("#form_edit button").removeAttr("disabled");
-
-                            if (ExAs.Utils.Json.valid(response)) {
-                                var res = JSON.parse(response);
-                                $('#modal_header_edit').html(modal_header);
-                                if (res.status) {
-                                    ExAl.Toast.Success(res.header, res.message, function(result) {
-                                        if (result.isDismissed) {
-                                            loadData();
-                                            ExAl.Modal.Close('#modalEdit', true);
-                                            $('#form_edit').trigger('reset')
-                                        }
-                                    });
-                                } else {
-                                    ExAl.Toast.Failed(res.header, res.message);
-                                }
-                            }
-                        },
-                        error: function(e) {
-                            // console.log(e);
-                            $("#submit").removeClass("spinner spinner-white spinner-right disabled");
-                        },
-                    });
-                } else {
-                    $("#submitEdit").removeClass("spinner spinner-white spinner-right disabled");
-                    $("#form_edit button").removeAttr("disabled");
-                }
-            });
-        }
-    }
-
     var deleteTrigger = function() {
         $("table tbody").on("click", ".tombolDelete", function() {
             var drop = tb.row($(this).parents("tr")).data();
@@ -683,135 +409,14 @@ var ExAsUser = (function() {
         });
     }    
 
-    var initMarker = function (coordinate = [currentLatitude, currentLongitude]) { //[3.597031, 98.678513]
-        var marker = new L.marker(coordinate, {draggable:'true'});
-        marker.on('dragend', function(event){
-            var marker = event.target;
-            var position = marker.getLatLng();
-            $("#asset_coordinate").val(`${position.lat},${position.lng}`);
-            $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${position.lat} °, Longitude: ${position.lng} °</h5>`);
-            marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
-        });
-        return marker;
-    }
-
-    var initMap = function () {
-        console.log(currentLatitude);
-        var tileLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; SIT 2024 with &hearts;'
-        });
-    
-        // tileLayer = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-        //     attribution: '&copy; SIT 2024 with &hearts;',
-        //     subdomains:['mt0','mt1','mt2','mt3']
-        // });
-    
-        // Hybrid
-        // tileLayer = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-        //     attribution: '&copy; SIT 2024 with &hearts;',
-        //     subdomains:['mt0','mt1','mt2','mt3']
-        // });
-    
-        // Streets
-        // tileLayer = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-        //     attribution: '&copy; SIT 2024 with &hearts;',
-        //     subdomains:['mt0','mt1','mt2','mt3']
-        // });
-    
-        // Terrain
-        tileLayer = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
-            attribution: '&copy; SIT 2024 with &hearts;',
-            subdomains:['mt0','mt1','mt2','mt3']
-        });
-        
-        map = L.map('map', {
-            zoomControl: true,
-            layers: [tileLayer],
-            maxZoom: 18,
-            minZoom: 6
-        }).setView([currentLatitude, currentLongitude], 13);
-    
-        var results = new L.LayerGroup().addTo(map);
-        results.addLayer(initMarker());
-    
-        $('#modalTambah').on('show.bs.modal', function(){
-            setTimeout(function () { map.invalidateSize() }, 800);
-        });
-    
-        L.control.scale().addTo(map);
-    
-        var searchControl = new L.esri.Controls.Geosearch().addTo(map);
-    
-        searchControl.on('results', function(data){
-            results.clearLayers();
-            for (var i = data.results.length - 1; i >= 0; i--) {
-                results.addLayer(initMarker(data.results[i].latlng));
-            }
-        });
-    }    
-
     return {
         run: function() {
             search();
-            loadRole();
-            loadType();
-            loadPlant();
+            tableCss();
             Transaction();
-            geoFindMe();
         },
         refresh: function() { loadData() }
     }
 })();
 
 ExAs.Dom(ExAsUser.run())
-
-
-jQuery(document).ready(function($){
-    var cropper_ratio = {
-        product: 1 / 1,
-    };
-
-    var product_image = {
-        width: 500,
-        height: 500
-    };
-
-    var cropper_ratio_selected = cropper_ratio.product;
-    var image_width_selected = product_image.width;
-    var image_height_selected = product_image.height;
-
-    var image = document.getElementById('sample_image');
-    var cropper;
-
-    $(".btn-copy").on('click', function(event){
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        //(... rest of your JS code)
-    });
-
-    $('#asset_image').change(function(event) {
-        cropper_ratio_selected = cropper_ratio.product;
-        image_width_selected = product_image.width;
-        image_height_selected = product_image.height;
-
-        var files = event.target.files;
-
-        var done = function(url) {
-            image.src = url;
-        };
-
-        if (files && files.length > 0) {
-            var reader = new FileReader();
-            reader.onload = function(event) {
-                done(reader.result);
-            };
-            reader.readAsDataURL(files[0]);
-
-            cropper = new Cropper(image, {
-                aspectRatio: cropper_ratio_selected,
-                viewMode: 0,
-                preview: '.preview'
-            });
-        }
-    });
-})

@@ -38,10 +38,10 @@ class Asset_core extends CI_Controller
             ];
             $this->view['javascript'] = [
                 // 'libs/datatables/js/jquery-3.6.0.min.js',
-                'libs/datatables/js/jquery.dataTables.min.js',
-                'libs/datatables/js/dataTables.bootstrap5.min.js',
-                'libs/datatables/js/dataTables.responsive.min.js',
-                'libs/datatables/js/dataTables.buttons.min.js',
+                // 'libs/datatables/js/jquery.dataTables.min.js',
+                // 'libs/datatables/js/dataTables.bootstrap5.min.js',
+                // 'libs/datatables/js/dataTables.responsive.min.js',
+                // 'libs/datatables/js/dataTables.buttons.min.js',
                 'libs/select2/js/select2.min.js'
             ];
 
@@ -132,17 +132,36 @@ class Asset_core extends CI_Controller
 
     public function load()
     {
-        if ($this->input->post('scrty') == true && hasOwnProgram()) {
+        // if ($this->input->post('scrty') == true && hasOwnProgram()) {
+        //     $data['role'] = getSession('role');            
+        //     $headers = array(
+        //         'X-API-TOKEN:' . getEnvi('API_TOKEN'),
+        //         'X-APP-KEY:' . getEnvi('API_APP_KEY'),
+        //         'Authorization:' . getSession('token')
+        //     );
+        //     $start = $this->input->post("start");
+        //     $limit = $this->input->post("limit");
+        //     // echo base64_encode($this->api->getData(getEnvi('schema') . '/master/asset/list?start='. $start .'&limit=' . $limit, $data, false, $headers));
+        // } else {
+        //     error_404();
+        // }
+
+        // if ($this->input->post('scrty') == true && hasOwnProgram()) {
             $data['role'] = getSession('role');            
             $headers = array(
                 'X-API-TOKEN:' . getEnvi('API_TOKEN'),
                 'X-APP-KEY:' . getEnvi('API_APP_KEY'),
                 'Authorization:' . getSession('token')
             );
-            echo base64_encode($this->api->getData(getEnvi('schema') . '/master/asset/list', $data, false, $headers));
-        } else {
-            error_404();
-        }
+            $start = $this->input->post("start");
+            $limit = $this->input->post("limit");
+            $keyword = $this->input->post("keyword");
+            // $result = json_decode($this->api->getData(getEnvi('schema') . '/master/asset/list?start='. $start .'&limit=' . $limit . "&keyword=" . $keyword , $data, false, $headers));
+            $result = $this->api->getData(getEnvi('schema') . '/master/asset/list?start='. $start .'&limit=' . $limit . "&keyword=" . $keyword , $data, false, $headers);
+            echo base64_encode($result);
+        // } else {
+        //     error_404();
+        // }
     }
 
     public function insert()
