@@ -73,7 +73,7 @@ class Asset_core extends CI_Controller
                 'libs/datatables/js/dataTables.bootstrap5.min.js',
                 'libs/datatables/js/dataTables.responsive.min.js',
                 'libs/datatables/js/dataTables.buttons.min.js',
-                'libs/select2/js/select2.min.js'                
+                'libs/select2/js/select2.min.js',                    
             ];
 
             $this->view['java'] = [
@@ -155,9 +155,12 @@ class Asset_core extends CI_Controller
             );
             $start = $this->input->post("start");
             $limit = $this->input->post("limit");
-            $keyword = $this->input->post("keyword");
+            $keyword = str_replace(' ', '%20', $this->input->post("keyword"));
+
+            // var_dump(getEnvi('schema') . '/master/asset/list?start='. $start .'&limit=' . $limit . "&keyword=" . $keyword);die;
             // $result = json_decode($this->api->getData(getEnvi('schema') . '/master/asset/list?start='. $start .'&limit=' . $limit . "&keyword=" . $keyword , $data, false, $headers));
             $result = $this->api->getData(getEnvi('schema') . '/master/asset/list?start='. $start .'&limit=' . $limit . "&keyword=" . $keyword , $data, false, $headers);
+            // var_dump($result);die;
             echo base64_encode($result);
         // } else {
         //     error_404();
@@ -172,15 +175,15 @@ class Asset_core extends CI_Controller
             $data['asset_plant']                = $this->input->post('asset_plant');
             $data['asset_size']                 = $this->input->post('asset_size');
             $data['asset_description']          = $this->input->post('asset_description');
-            $data['acq_value']                  = $this->input->post('asset_acq');
+            $data['acq_value']                  = str_replace(",", "", substr($this->input->post('asset_acq'), 1));
+            $data['accumulated_depreciation']   = str_replace(",", "", substr($this->input->post('asset_accumulated'), 1));
+            $data['book_value']                 = str_replace(",", "", substr($this->input->post('book_value'), 1));
             $data['capitalized_on']             = $this->input->post('asset_capitalized_on');
             $data['useful_life']                = $this->input->post('asset_useful');
-            $data['accumulated_depreciation']   = $this->input->post('asset_accumulated');
             $data['cost_center']                = $this->input->post('asset_cost_center');
             $data['coordinate']                 = $this->input->post('asset_coordinate');
             $data['map_link']                   = $this->input->post('asset_mapslink');
             $data['additional_description']     = $this->input->post('additional_description');
-            $data['book_value']                 = $this->input->post('book_value');            
             
             $img_asset_base64 = $this->input->post('img_asset_base64');    
 
@@ -194,6 +197,7 @@ class Asset_core extends CI_Controller
             } 
 
             $data['asset_image'] = $this->uploadImageBase64("FA", "upload/image/", $img_asset_base64, $data['asset_number']);
+
 
             // $maxsize = 3145728;  //3MB; 2MB -> 2097152                             
             
@@ -285,9 +289,9 @@ class Asset_core extends CI_Controller
                     $data['asset_plant']                = $getData[2];
                     $data['asset_size']                 = $getData[3];
                     $data['asset_description']          = $getData[4];
-                    $data['acq_value']                  = $getData[5];
-                    $data['accumulated_depreciation']   = $getData[6];
-                    $data['book_value']                 = $getData[7];
+                    $data['acq_value']                  = str_replace(",", ".", $getData[5]);
+                    $data['accumulated_depreciation']   = str_replace(",", ".", $getData[6]);
+                    $data['book_value']                 = str_replace(",", ".", $getData[7]);
                     $data['capitalized_on']             = $getData[8];
                     $data['useful_life']                = $getData[9];
                     $data['cost_center']                = $getData[10];
@@ -318,6 +322,7 @@ class Asset_core extends CI_Controller
             );     
 
             $json['json'] = base64_encode(json_encode($array_data));
+
             $result = $this->api->post(getEnvi('schema') . '/master/asset/json', $json, true, true);                
             
             if (isset($result) && $result->success) {
@@ -353,15 +358,15 @@ class Asset_core extends CI_Controller
             $data['asset_plant']                = $this->input->post('asset_plant');
             $data['asset_size']                 = $this->input->post('asset_size');
             $data['asset_description']          = $this->input->post('asset_description');
-            $data['acq_value']                  = $this->input->post('asset_acq');
+            $data['acq_value']                  = str_replace(",", "", substr($this->input->post('asset_acq'), 1));
+            $data['accumulated_depreciation']   = str_replace(",", "", substr($this->input->post('asset_accumulated'), 1));
+            $data['book_value']                 = str_replace(",", "", substr($this->input->post('book_value'), 1));
             $data['capitalized_on']             = $this->input->post('asset_capitalized_on');
             $data['useful_life']                = $this->input->post('asset_useful');
-            $data['accumulated_depreciation']   = $this->input->post('asset_accumulated');
             $data['cost_center']                = $this->input->post('asset_cost_center');
             $data['coordinate']                 = $this->input->post('asset_coordinate');
             $data['map_link']                   = $this->input->post('asset_mapslink');         
             $data['additional_description']     = $this->input->post('additional_description');
-            $data['book_value']                 = $this->input->post('book_value');
             
             $img_asset_base64 = $this->input->post('img_asset_base64');    
 
@@ -379,7 +384,9 @@ class Asset_core extends CI_Controller
                     'Authorization:' . getSession('token'),
                 )
             );        
+
             $result = $this->api->put(getEnvi('schema') . '/master/asset', $data, true);
+            // var_dump($result);die;
             if (isset($result->success) && $result->success) {
                 echo json_encode([
                     'status' => true,

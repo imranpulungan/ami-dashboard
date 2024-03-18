@@ -174,17 +174,20 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_accumulated'); ?> <span class="text-danger">*</span></label>
-                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>" id="asset_accumulated" name="asset_accumulated" />
+                                <input id="asset_accumulated" name="asset_accumulated" type="text" required class="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>">
+                                <!-- <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>" id="asset_accumulated" name="asset_accumulated" /> -->
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?></div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_acq'); ?> <span class="text-danger">*</span></label>
-                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>" id="asset_acq" name="asset_acq" />
+                                <input id="asset_acq" name="asset_acq" type="text" required class="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>">
+                                <!-- <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>" id="asset_acq" name="asset_acq" /> -->
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_acq_error'); ?></div>
                             </div> 
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_book_value'); ?> <span class="text-danger">*</span></label>
-                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_book_value_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?>" id="book_value" name="book_value" />
+                                <input id="book_value" name="book_value" type="text" required class="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_book_value_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?>">
+                                <!-- <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_book_value_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?>" id="book_value" name="book_value" /> -->
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?></div>
                             </div>                                                                                                       
                         </div>
@@ -243,4 +246,4 @@ crossorigin=""></script>
 <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
 <script src="https://unpkg.com/dropzone"></script>
 <script src="https://unpkg.com/cropperjs"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->

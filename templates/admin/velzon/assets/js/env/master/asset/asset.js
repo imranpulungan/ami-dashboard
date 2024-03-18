@@ -37,10 +37,10 @@ var ExAsUser = (function() {
         pagingType: 'simple_numbers',
         "fnInfoCallback": function(oSettings, iStart, iEnd, iMax, iTotal, sPre) {
             if (iTotal != 0) {
-                $('#tableInfo').html('Menampilkan Data ' + iStart + " - " + iEnd + " dari " + iTotal + ' Data')
+                $('#tableInfo').html('Menampilkan Data ' + iStart + " - " + (isNaN(iEnd) ? iTotal : iEnd) + " dari " + iTotal + ' Data')
             } else {
                 $('#tableInfo').html('Tidak ada Data')
-                // $('.existPaginate').val(1)
+                $('.existPaginate').val(1)
             }
             return iStart + " - " + iEnd + " of " + iTotal;
         },
@@ -96,9 +96,11 @@ var ExAsUser = (function() {
         drawCallback: function () {
             var table = this.api();
             var pageInfo = table.page.info();
+            if (isNaN(pageInfo.page)) {
+                table.ajax.reload();
+            }
         },        
         ajax: function(oData, oCallback, oSetting) {
-            console.log(oData);
             $.ajax({
                 url: e3nCeL0t + MoDaD + MAIN + "load",
                 method: "POST",
@@ -106,7 +108,7 @@ var ExAsUser = (function() {
                 data: {
                     scrty: true,
                     start: oData.start,
-                    limit: oData.search.value != '' ? 1 : limit,
+                    limit: limit, //oData.search.value != '' ? 1 : limit
                     keyword: oData.search.value
                 },
                 success: function(response) {
@@ -123,7 +125,7 @@ var ExAsUser = (function() {
                                 element.number = no++;
                                 newLement.push(element)
                             });
-                        }                        
+                        }    
 
                         oCallback({
                             recordsTotal: res.data?.recordsTotal ?? 0,
@@ -154,25 +156,11 @@ var ExAsUser = (function() {
 
         var search = ExAs.Doc.Select("#tableSearch");
         ExAs.Doc.Listen('keyup', function() {
-            if (tb.search() !== this.value) {
+            if (tb.search() !== this.value) {                
                 tb.search(this.value, true, false).draw();
             }
             $('.existPaginate').val(1)
         }, search)
-
-        var filter = ExAs.Doc.Select("#tableLength");
-        ExAs.Doc.Listen('change', function() {
-            tb.page.len($(this).val()).draw();
-            var page = tb.page.info();
-            if (page.pages == 1) {
-                $('.previous').attr('disabled', true);
-                $('.next').attr('disabled', true);
-                $('.existPaginate').val(1)
-            } else {
-                $('.previous').attr('disabled', true);
-                $('.next').removeAttr('disabled');
-            }
-        }, filter)
     }
 
     var print_status_asset = function(value, id_asset = null) {
@@ -252,7 +240,7 @@ var ExAsUser = (function() {
                         }
                     })
                 } else {
-                    $(this).replaceWith(print_status_user(drop.status));
+                    $(this).replaceWith(print_status_asset(drop.status));
                 }
             })
         });
@@ -409,10 +397,72 @@ var ExAsUser = (function() {
         });
     }    
 
+    function copyToClipboard($value) {
+        navigator.clipboard.writeText($value);        
+        alert(`Copied the text: ${$value}`);
+    }
+
+    var loadType = function() {
+        $.ajax({
+            url: e3nCeL0t + MoDaD + MAIN + "category",
+            method: "POST",
+            async: false,
+            data: {
+                scrty: true
+            },
+            success: function(response) {
+                var respon = ExAs.uXvbI(response)
+                if (ExAs.Utils.Json.valid(respon)) {
+                    var res = JSON.parse(respon)                    
+                    var select = "";
+                    if (res.success) {
+                        $.each(res.data, function(index, item) {
+                            select += `<li class="p-1"><button class="btn btn-primary btn-sm" type="button" onclick="copyToClipboard('${item.category}')">Copy</button> ${item.category}</li>`;
+                        })
+                        $('#asset_type').append(select);
+                        $('#edit_asset_type').append(select);
+                        $('#import_asset_type').append(select);
+                        
+                    }
+                }
+            }
+        })
+    }
+    var loadPlant = function() {
+        $.ajax({
+            url: e3nCeL0t + MoDaD + MAIN + "plant",
+            method: "POST",
+            async: false,
+            data: {
+                scrty: true
+            },
+            success: function(response) {
+                var respon = ExAs.uXvbI(response)
+                if (ExAs.Utils.Json.valid(respon)) {
+                    var res = JSON.parse(respon)
+                    var select = "";
+                    $('#asset_plant').html('');
+                    // $('#asset_plant_edit').html('');
+                    if (res.success) {
+                        select += "<option></option>";
+                        $.each(res.data, function(index, item) {
+                            select += `<li class="p-1"><button class="btn btn-primary btn-sm" type="button" onclick="copyToClipboard('${item.id_loc}')">Copy</button> ${item.location}</li>`;
+                        })
+                        $('#asset_plant').html(select);
+                        $('#edit_asset_plant').html(select);
+                        $('#import_asset_plant').html(select);
+                    }
+                }
+            }
+        })
+    }
+
     return {
         run: function() {
             search();
             tableCss();
+            loadType();
+            loadPlant();
             Transaction();
         },
         refresh: function() { loadData() }
