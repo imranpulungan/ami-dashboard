@@ -73,7 +73,8 @@ class Asset_core extends CI_Controller
                 'libs/datatables/js/dataTables.bootstrap5.min.js',
                 'libs/datatables/js/dataTables.responsive.min.js',
                 'libs/datatables/js/dataTables.buttons.min.js',
-                'libs/select2/js/select2.min.js',                    
+                'libs/select2/js/select2.min.js',              
+                'libs/jquery.maskMoney.min.js'      
             ];
 
             $this->view['java'] = [
@@ -104,7 +105,8 @@ class Asset_core extends CI_Controller
                 'libs/datatables/js/dataTables.bootstrap5.min.js',
                 'libs/datatables/js/dataTables.responsive.min.js',
                 'libs/datatables/js/dataTables.buttons.min.js',
-                'libs/select2/js/select2.min.js'                
+                'libs/select2/js/select2.min.js', 
+                'libs/jquery.maskMoney.min.js'      
             ];
 
             $this->view['java'] = [

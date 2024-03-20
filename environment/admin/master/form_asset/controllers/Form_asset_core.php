@@ -43,9 +43,12 @@ class Form_asset_core extends CI_Controller
             $data['capitalized_on']             = $this->input->post('asset_capitalized_on');
             $data['useful_life']                = $this->input->post('asset_useful');
             $data['accumulated_depreciation']   = $this->input->post('asset_accumulated');
+            $data['book_value']                 = $this->input->post('book_value');
             $data['cost_center']                = $this->input->post('asset_cost_center');
             $data['coordinate']                 = $this->input->post('asset_coordinate');
             $data['map_link']                   = $this->input->post('asset_mapslink');
+            $data['additional_description']     = $this->input->post('additional_description');         
+            // var_dump($data);die;
             
             
             $maxsize = 3145728;  //3MB; 2MB -> 2097152                             
@@ -60,7 +63,7 @@ class Form_asset_core extends CI_Controller
                 $data['asset_image'] = $this->UploadFile($_FILES['asset_image'], "asset");
             } else {
                 http_response_code(400);
-                echo "Gambar Aset wajib disertakan";
+                echo "Gambar Aset wajib disertakan ya";
                 return;
             }
             
@@ -72,7 +75,8 @@ class Form_asset_core extends CI_Controller
                 )
             );            
 
-            $result = $this->api->post(getEnvi('schema') . '/master/asset', $data);                                
+            $result = $this->api->post(getEnvi('schema') . '/master/asset', $data, false);
+            var_dump($result);die;
             if (isset($result->success) && $result->success) {
                 http_response_code(200);
                 echo "Berhasil Simpan Aset";
@@ -99,9 +103,10 @@ class Form_asset_core extends CI_Controller
             $data['capitalized_on']             = $this->input->post('asset_capitalized_on');
             $data['useful_life']                = $this->input->post('asset_useful');
             $data['accumulated_depreciation']   = $this->input->post('asset_accumulated');
+            $data['book_value']                 = $this->input->post('book_value');
             $data['cost_center']                = $this->input->post('asset_cost_center');
             $data['coordinate']                 = $this->input->post('asset_coordinate');
-            $data['map_link']                   = $this->input->post('asset_mapslink');         
+            $data['additional_description']     = $this->input->post('additional_description');         
             
             $maxsize = 3145728;  //3MB; 2MB -> 2097152                             
             

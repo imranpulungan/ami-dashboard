@@ -174,20 +174,26 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_accumulated'); ?> <span class="text-danger">*</span></label>
-                                <input id="asset_accumulated" name="asset_accumulated" type="text" required class="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>">
-                                <!-- <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>" id="asset_accumulated" name="asset_accumulated" /> -->
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">$</span>
+                                    <input id="asset_accumulated" name="asset_accumulated" type="text" required class="form-control" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_accumulated_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?>">
+                                </div>                                
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_accumulated_error'); ?></div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_acq'); ?> <span class="text-danger">*</span></label>
-                                <input id="asset_acq" name="asset_acq" type="text" required class="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>">
-                                <!-- <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>" id="asset_acq" name="asset_acq" /> -->
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">$</span>
+                                    <input id="asset_acq" name="asset_acq" type="text" required class="form-control" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_acq_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_acq_error'); ?>">
+                                </div>
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_acq_error'); ?></div>
                             </div> 
-                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">                                                            
                                 <label><?= getLangKey('asset_add_modal_label_asset_book_value'); ?> <span class="text-danger">*</span></label>
-                                <input id="book_value" name="book_value" type="text" required class="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_book_value_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?>">
-                                <!-- <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_book_value_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?>" id="book_value" name="book_value" /> -->
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">$</span>
+                                    <input id="book_value" name="book_value" type="text" required class="form-control" value="" data-type="currency" placeholder="<?= getLangKey('asset_add_modal_label_asset_book_value_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?>">
+                                </div>
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_book_value_error'); ?></div>
                             </div>                                                                                                       
                         </div>
