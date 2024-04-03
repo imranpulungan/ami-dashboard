@@ -63,6 +63,16 @@ class Dashboard extends CI_Controller
         error_404();
     }
 
+    public function asset()
+    {
+        if ($this->input->post('scrty') == true && hasOwnProgram()) {
+            $result = $this->api->getData(getEnvi('schema') . '/dashboard/asset', null, true);
+            echo base64_encode(json_encode($result));        
+        } else {
+            error_404();
+        }
+    }
+
     public function load()
     {
         if ($this->input->post('scrty') == true && hasOwnProgram()) {
@@ -70,8 +80,8 @@ class Dashboard extends CI_Controller
             // $data['bulan'] = $this->input->post('bulan');
             // $data['role'] = getSession('role');
             // $data['id_user'] = getSession('token');
-            // $result = $this->api->getData(getEnvi('schema') . '/dashboard/dashboard', $data, true);
-            // echo base64_encode(json_encode($result));
+            $result = $this->api->getData(getEnvi('schema') . '/dashboard/dashboard', $data, true);
+            echo base64_encode(json_encode($result));
             // echo json_encode($result);
         } else {
             error_404();

@@ -57,6 +57,207 @@
             </div> <!-- end col -->
         </div>
 
+
+        <div class="row">
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase fw-medium text-white mb-0">Total Aset Bangunan</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_building" class="counter-value" data-target="0">0</span></h4>                                                
+                            </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-building-line text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase text-white fw-medium mb-0">Total Aset Struktur</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_structure" class="counter-value" data-target="0">0</span></h4>
+                               </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-stack-line text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase fw-medium text-white mb-0">Total Aset Mesin</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_machinery" class="counter-value" data-target="0">0</span></h4>
+                               </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-settings-5-line text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase fw-medium text-white mb-0">Total Aset Kendaraan</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_vehicle" class="counter-value" data-target="0">0</span></h4>
+                               </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-car-line text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase fw-medium text-white mb-0">Total Alat & Perlengkapan Aset</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_tools_fixture" class="counter-value" data-target="0">0</span></h4>                                                
+                            </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-tools-fill text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase fw-medium text-white mb-0">Total Aset Sedang dibangun</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_auc" class="counter-value" data-target="0">0</span></h4>
+                               </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-bar-chart-2-line text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase fw-medium text-white mb-0">Total Aset Lahan</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_lahan" class="counter-value" data-target="0">0</span></h4>
+                               </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-search-2-line text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card card-animate bg-info bg-gradient bg-info">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <p class="text-uppercase fw-medium text-white mb-0">Total Aset Tidak Beroperasi</p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="<?= baseUri('master/asset') ?>" class="text-decoration-underline text-white-50">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between mt-4">
+                            <div>
+                                <h4 class="fs-2 fw-semibold ff-secondary mb-4 text-white"><span id="total_asset_ano" class="counter-value" data-target="0">0</span></h4>
+                               </div>
+                            <div class="avatar-sm flex-shrink-0">
+                                <span class="avatar-title bg-soft-light rounded fs-3">
+                                    <i class="ri-shut-down-line text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </div>
-    <!-- container-fluid -->
 </div>

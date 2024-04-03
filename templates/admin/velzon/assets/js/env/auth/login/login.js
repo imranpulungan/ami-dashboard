@@ -32,7 +32,7 @@ function login(thos) {
                                 // console.log(x);
                                 window.location = e3nCeL0t + x.latest;
                             } else {
-                                window.location = e3nCeL0t + "admin/dashboard"
+                                window.location = e3nCeL0t + "dashboard"
                             }
                         }
                     })
