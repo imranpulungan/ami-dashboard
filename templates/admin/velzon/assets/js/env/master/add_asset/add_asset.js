@@ -16,11 +16,15 @@ var ExAsUser = (function() {
 
     var geoFindMe = () => {
         function success(position) {
+            // http://maps.google.com/?cbll=${currentLatitude},${currentLongitude}&cbp=12,90,0,0,5&layer=c
+            // https://www.google.com/maps/search/?api=1&query=${currentLatitude},${currentLongitude}
+            // https://www.google.com/maps/@${currentLatitude},,${currentLongitude},38m/data=!3m1!1e3
+            
             currentLatitude = position.coords.latitude;
             currentLongitude = position.coords.longitude;
             $("#asset_coordinate").val(`${currentLatitude},${currentLongitude}`);
-            $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${currentLatitude} °, Longitude: ${currentLongitude} °</h5>`);
-
+            $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${currentLatitude}°, Longitude: ${currentLongitude}°&nbsp;&nbsp;<a href="https://www.google.com/maps/search/?api=1&query=${currentLatitude},${currentLongitude}" class="btn btn-primary btn-sm"><i class="ri-map-pin-line"></i> Google Maps</a></h5> `);
+            
             initMap();
         }
     
@@ -153,7 +157,7 @@ var ExAsUser = (function() {
             var marker = event.target;
             var position = marker.getLatLng();
             $("#asset_coordinate").val(`${position.lat},${position.lng}`);
-            $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${position.lat} °, Longitude: ${position.lng} °</h5>`);
+            $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${position.lat}°, Longitude: ${position.lng}°&nbsp;&nbsp;<a href="https://www.google.com/maps/search/?api=1&query=${position.lat},${position.lng}" class="btn btn-primary"><i class="ri-map-pin-line"></i> Google Maps</a></h5> `);
             marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
         });
         return marker;
@@ -235,7 +239,7 @@ var ExAsUser = (function() {
                         currentLatitude = coordinate[0];
                         currentLongitude = coordinate[1];
                         $("#asset_coordinate").val(`${currentLatitude},${currentLongitude}`);
-                        $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${currentLatitude} °, Longitude: ${currentLongitude} °</h5>`);                        
+                        $(".info-current-location").html(`<h5 class="text-primary">Latitude: ${currentLatitude}°, Longitude: ${currentLongitude}°&nbsp;&nbsp;<a href="https://www.google.com/maps/search/?api=1&query=${currentLatitude},${currentLongitude}" class="btn btn-primary"><i class="ri-map-pin-line"></i> Google Maps</a></h5> `);
                         initMap();
                     } else{
                         geoFindMe();
