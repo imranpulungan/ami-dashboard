@@ -150,7 +150,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_size'); ?> <span class="text-danger">*</span></label>
-                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_size_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_size_error'); ?>" id="asset_size" name="asset_size" />
+                                <input type="number" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_size_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_size_error'); ?>" id="asset_size" name="asset_size" />
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_size_error'); ?></div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
@@ -162,7 +162,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                 <label><?= getLangKey('asset_add_modal_label_asset_useful'); ?> <span class="text-danger">*</span></label>
-                                <input type="text" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_useful_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_useful_error'); ?>" id="asset_useful" name="asset_useful" />
+                                <input type="number" required class="form-control" placeholder="<?= getLangKey('asset_add_modal_label_asset_useful_plc'); ?>" data-error="<?= getLangKey('asset_add_modal_label_asset_useful_error'); ?>" id="asset_useful" name="asset_useful" />
                                 <div class="invalid-feedback"><?= getLangKey('asset_add_modal_label_asset_useful_error'); ?></div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-3">

@@ -132,6 +132,7 @@ var ExAsUser = (function() {
                                         if (result.isDismissed) {
                                             loadData();
                                             ExAl.Modal.Close('#modalTambah', true);
+                                            window.location = window.location.href.replace('/add', '');
                                         }
                                     });
                                 } else {

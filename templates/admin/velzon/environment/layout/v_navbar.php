@@ -318,11 +318,11 @@
                     </button>
                 </div>
 
-                <div class="ms-1 header-item d-none d-sm-flex">
+                <!-- <div class="ms-1 header-item d-none d-sm-flex">
                     <a href="<?= assetsUri('docs/manual.pdf') ?>" target="_blank" type="button" class="btn btn-sm btn-soft-warning text-dark"><i class="ri-book-open-line align-middle me-1"></i>
                         Petunjuk Penggunaan
                     </a>
-                </div>
+                </div> -->
 
                 <!-- <div class="ms-1 header-item d-none d-sm-flex">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">

@@ -85,7 +85,7 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © Smelter Safety & Quality Management System Section.
+                            </script> © PT Indonesia Asahan Aluminium.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">

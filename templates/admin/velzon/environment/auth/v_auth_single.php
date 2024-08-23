@@ -102,7 +102,7 @@
                                     <img src="<?= assetsUri(); ?>images/inalum-white.png" alt="" height="40">
                                 </a>
                             </div>
-                            <p class="mt-3 fs-15 fw-medium">Surat Izin Kerja Aman Online</p>
+                            <p class="mt-3 fs-15 fw-medium">Asset Management Inalum</p>
                         </div>
                     </div>
                 </div>
@@ -177,11 +177,11 @@
                         </div>
                         <!-- end card -->
 
-                        <div class="mt-4 text-center">
+                        <!-- <div class="mt-4 text-center">
                             <a href="<?= assetsUri('docs/manual.pdf') ?>" target="_blank" type="button" class="btn btn-sm btn-warning text-dark"><i class="ri-book-open-line align-middle me-1"></i>
                                 Petunjuk Penggunaan
                             </a>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                                         document.write('2023 - ')
                                     }
                                     document.write(new Date().getFullYear())
-                                </script> <a href="https://alimstudio.com" style="color: white;">Smelter Safety & Quality Management System Section</a>
+                                </script> <a href="https://alimstudio.com" style="color: white;">PT Indonesia Asahan Aluminium</a>
                             </p>
                         </div>
                     </div>

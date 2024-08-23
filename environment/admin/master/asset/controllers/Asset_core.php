@@ -232,7 +232,9 @@ class Asset_core extends CI_Controller
                 )
             );            
 
-            $result = $this->api->post(getEnvi('schema') . '/master/asset', $data);                    
+            // echo json_encode($data);
+            // exit();                   
+            $result = $this->api->post(getEnvi('schema') . '/master/asset', $data); 
             if (isset($result->success) && $result->success) {
                 echo json_encode([
                     'status' => true,
